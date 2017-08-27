@@ -7,6 +7,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mukeshproject.R;
@@ -23,10 +24,12 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
     private Context context;
     private List<HomeCategoryModel> homeCategoryList;
+    private OnInnerViewsClickListener mListner;
 
-    public HomeCategoryAdapter(Context context, List<HomeCategoryModel> homeCategoryList) {
+    public HomeCategoryAdapter(Context context, List<HomeCategoryModel> homeCategoryList, OnInnerViewsClickListener mListner) {
         this.context = context;
         this.homeCategoryList = homeCategoryList;
+        this.mListner = mListner;
     }
 
     @Override
@@ -39,7 +42,9 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         HomeCategoryModel rowObject = homeCategoryList.get(position);
-     //   holder.tvCategoryName.setText("");
+        //   holder.tvCategoryName.setText("");
+
+
     }
 
     @Override
@@ -50,10 +55,23 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView tvCategoryName;
         private ImageView ivCategory;
+        private LinearLayout llCategotyMain;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             tvCategoryName = (TextView) itemView.findViewById(R.id.tvCategoryName);
             ivCategory = (ImageView) itemView.findViewById(R.id.ivCategory);
+            llCategotyMain = (LinearLayout) itemView.findViewById(R.id.llCategotyMain);
+            llCategotyMain.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListner.onItemClick(view, getAdapterPosition());
+                }
+            });
         }
+    }
+
+    public interface OnInnerViewsClickListener {
+        void onItemClick(View view, int position);
     }
 }

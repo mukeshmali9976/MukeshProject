@@ -38,7 +38,8 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        HomeCategoryModel rowObject = homeCategoryList.get(position);
+     //   holder.tvCategoryName.setText("");
     }
 
     @Override

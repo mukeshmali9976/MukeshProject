@@ -10,103 +10,30 @@ import java.io.File;
  */
 public class GalleryItem implements Parcelable {
 
-    /**
-     * The Ext.
-     */
-//	public String mImagePath;
-    public String ext = "";
-    /**
-     * The Is selected.
-     */
-    public boolean isSelected = false;
-    /**
-     * The Doc name.
-     */
-    public String docName;
-    /**
-     * The Folder name.
-     */
-    public String folderName;
-    /**
-     * The File name.
-     */
-    public File fileName;
-    /**
-     * The Is from server.
-     */
-    public boolean isFromServer;
-    /**
-     * The Is thumb image selected.
-     */
-    public boolean isThumbImageSelected;
-    /**
-     * The Need to upload.
-     */
-    public boolean needToUpload = true;
-    /**
-     * The Video url.
-     */
-    public String videoUrl;
-    /**
-     * The Is video.
-     */
-    public boolean isVideo;
-
-    /**
-     * The Attachment id.
-     */
-    public String attachment_id;
-    /**
-     * The Title.
-     */
-    public String title;
-    /**
-     * The Thumb image.
-     */
-    public String thumb_image;
-    /**
-     * The File name.
-     */
-    public String file_name;
-    /**
-     * The File type.
-     */
-    public String file_type;
-    /**
-     * The Is external link.
-     */
-    public String is_external_link;
-    /**
-     * The Ref table.
-     */
-    public int ref_table;
-    /**
-     * The Ref id.
-     */
-    public String ref_id;
-    /**
-     * The Isthumb.
-     */
-    public int isthumb;
-    /**
-     * The Filepath.
-     */
-    public String filepath;
-    /**
-     * The Thumbpath.
-     */
-    public String thumbpath;
-    /**
-     * The Thumbimage.
-     */
-    public String thumbimage;
+    String ext = "";
+    boolean isSelected = false;
+    String docName;
+    String folderName;
+    File fileName;
+    boolean isFromServer;
+    boolean isThumbImageSelected;
+    boolean needToUpload = true;
+    String videoUrl;
+    boolean isVideo;
+    String attachment_id;
+    String title;
+    String thumb_image;
+    String file_name;
+    String file_type;
+    String is_external_link;
+    int ref_table;
+    String ref_id;
+    int isthumb;
+    String filepath;
+    String thumbpath;
+    String thumbimage;
 
 
-    /**
-     * Gets video url.
-     *
-     * @return the video url
-     */
     public String getVideoUrl() {
         return videoUrl;
     }

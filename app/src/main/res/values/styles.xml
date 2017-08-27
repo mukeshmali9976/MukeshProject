@@ -1,0 +1,220 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowDisablePreview">true</item>
+
+        <item name="android:windowActionBar">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Screen background color -->
+        <!--<item name="android:windowBackground">@color/colorPrimary</item>-->
+        <!--<item name="android:background">@color/colorPrimary</item>-->
+        <!--<item name="background">@color/colorPrimary</item>-->
+        <!--ActionBar style-->
+        <item name="android:actionBarStyle">@style/styleActionBar</item>
+        <item name="actionBarStyle">@style/styleActionBar</item>
+
+        <!-- Views styles -->
+        <item name="android:textViewStyle">@style/styleTextView</item>
+        <item name="android:buttonStyle">@style/styleButton</item>
+        <item name="buttonStyle">@style/styleButton</item>
+        <item name="android:editTextStyle">@style/styleEditText</item>
+        <item name="editTextStyle">@style/styleEditText</item>
+        <item name="android:checkboxStyle">@style/styleCheckBox</item>
+        <!--<item name="checkboxStyle">@style/styleCheckBox</item>
+       <item name="android:radioButtonStyle">@style/styleRadioButton</item>
+       <item name="radioButtonStyle">@style/styleRadioButton</item>-->
+        <item name="android:spinnerStyle">@style/styleSpinner</item>
+        <item name="spinnerStyle">@style/styleSpinner</item>
+        <item name="android:spinnerDropDownItemStyle">@style/styleSpinnerDropDownStyle</item>
+        <item name="spinnerDropDownItemStyle">@style/styleSpinnerDropDownStyle</item>
+        <item name="sublimePickerStyle">@style/SPDefaultImpl</item>
+        <item name="android:actionMenuTextColor">@color/colorWhite</item>
+
+
+    </style>
+
+
+    <!-- Theme NoActionBar -->
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- ProgressBar dialog theme -->
+    <style name="Theme_CustomDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:progressBarStyle">@style/ProgressBarStyle</item>
+        <item name="android:windowContentOverlay">@android:color/transparent</item>
+    </style>
+
+    <style name="ProgressBarStyle" parent="@android:style/Widget.Holo.ProgressBar">
+        <!--<item name="android:indeterminateDrawable">@drawable/progress_large</item>,-->
+    </style>
+
+
+    <!-- ActionBar Style -->
+    <style name="styleActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="icon">@color/colorPrimaryDark</item>
+        <item name="android:icon">@color/colorPrimaryDark</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:displayOptions">homeAsUp|showHome</item>
+        <item name="displayOptions">homeAsUp|showHome</item>
+
+    </style>
+
+    <!-- TextView style -->
+    <style name="styleTextView" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- TextView style Bold-->
+    <style name="styleTextViewBold" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontPath">@string/semi_bold</item>
+        <item name="android:textColorHint">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Error TextView style -->
+    <style name="styleErrorTextView" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/font_12</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:gravity">right|end</item>
+        <!--<item name="android:textColorHint">@color/gray_bg</item>-->
+    </style>
+
+    <style name="styleCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontPath">@string/semi_bold</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+
+    </style>
+
+    <!-- Button style -->
+    <style name="styleButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/theme_button</item>
+        <item name="android:textColor">@drawable/theme_button_text_selector</item>
+        <item name="android:minHeight">@dimen/margin_36</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/margin_60</item>
+        <item name="android:paddingRight">@dimen/margin_60</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="fontPath">@string/semi_bold</item>
+    </style>
+
+    <!--EditText Style-->
+    <style name="styleEditText" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:paddingTop">@dimen/margin_10</item>
+        <item name="android:color">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@drawable/theme_cursor</item>
+
+    </style>
+
+    <!--EditText Style-->
+    <style name="styleEditTextNormal" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:paddingTop">@dimen/margin_10</item>
+        <item name="android:color">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:textCursorDrawable">@drawable/theme_cursor</item>
+
+    </style>
+
+    <!--White EditText Style-->
+    <style name="styleEditTextWhite" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:paddingTop">@dimen/margin_10</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:singleLine">false</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textCursorDrawable">@drawable/theme_cursor</item>
+
+    </style>
+
+    <!--Spinner Customized-->
+    <style name="styleSpinner" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_theme</item>
+        <item name="android:popupBackground">@color/colorAccent</item>
+        <item name="android:dropDownVerticalOffset">@dimen/margin_0</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:paddingRight">@dimen/margin_34</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:minHeight">@dimen/margin_26</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!--Spinner Customized-->
+    <style name="styleSpinnerDropDownStyle" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:dropDownWidth">wrap_content</item>
+        <item name="android:dropDownHeight">wrap_content</item>
+        <item name="android:rowHeight">@dimen/margin_4</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="fontPath">@string/regular</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <!-- sublime picker style -->
+    <style name="SPDefaultImpl" parent="SublimePickerStyleLight">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#727272</item>
+        <item name="android:textColorPrimaryInverse">#FFFFFF</item>
+    </style>
+
+    <!-- Radio button style -->
+    <!--<style name="styleRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">-->
+        <!--<item name="android:textColor">@color/colorPrimaryDark</item>-->
+        <!--<item name="android:button">@drawable/theme_radio_button</item>-->
+        <!--<item name="android:paddingLeft">@dimen/margin_10</item>-->
+        <!--<item name="android:background">@null</item>-->
+        <!--<item name="android:minHeight">0dp</item>-->
+        <!--<item name="android:minWidth">0dp</item>-->
+        <!--<item name="fontPath">@string/regular</item>-->
+        <!--<item name="android:textSize">@dimen/font_14</item>-->
+        <!--<item name="android:buttonTint" tools:ignore="NewApi">@color/colorPrimaryDark</item>-->
+        <!--<item name="android:textAppearance">@android:style/TextAppearance.Medium</item>-->
+    <!--</style>-->
+
+    <style name="LightDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontPath">@string/regular</item>
+    </style>
+
+
+</resources>

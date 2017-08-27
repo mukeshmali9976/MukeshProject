@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Mukesh Project</string>
+    <string name="action_settings">Settings</string>
+
+
+
+    <!-- Common strings -->
+    <string name="enable_location">Please enable location in settings</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="no_network_connection">Sorry! It appears that we are offline. Content and images may not display until we reconnect to the Internet.</string>
+    <string name="digit_token_error_message">An error occurred while either fetching the token, Please try again</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token, sending the fetched token to the server or subscribing to the PubSub topic. Please try running the sample again.</string>
+    <string name="update_app_msg">New Version available now! \n please update new version.</string>
+    <string name="lbl_app_update">App Update</string>
+    <string name="btn_not_now">Not Now</string>
+    <string name="btn_update">Update</string>
+
+    <string name="crop_image">Crop Image</string>
+    <string name="bullet">\u2022</string>
+    <string name="bullet_big">\u26AB</string>
+    <string name="lbl_ok">OK</string>
+    <string name="lbl_cancel">Cancel</string>
+    <string name="menu_crop">Crop</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_settings">Settings</string>
+    <string name="lbl_no">No</string>
+    <string name="lbl_call">Call</string>
+    <string name="lbl_close">Close</string>
+    <string name="lbl_select">Select</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="lbl_crop_image">Crop Image</string>
+    <string name="lbl_no_internet">Internet connection is not available</string>
+    <string name="lbl_no_records_available">No records available</string>
+    <string name="alert_delete_message">Are you sure want to delete?</string>
+    <string name="alert_call_message">Are you sure want to call?</string>
+    <string name="lbl_minus">&#8211;</string>
+    <string name="lbl_plus">&#43;</string>
+    <string name="toast_exit_msg">Press again to exit</string>
+    <string name="lbl_open_camera">Open Camera</string>
+    <string name="lbl_open_gallery">Open Gallery</string>
+    <string name="lbl_menu">Menu</string>
+    <string name="alert_logout_message">Are you sure you want to logout?</string>
+    <string name="lbl_no_data">No data found</string>
+    <string name="dialog_title_limit">Selection Limit</string>
+    <string name="dialog_message_limit">You can only select 3 options!</string>
+
+    <!-- Define all Font Names -->
+    <string name="regular">fonts/sf_ui_regular.otf</string>
+    <string name="semi_bold">fonts/sf_ui_semibold.otf</string>
+
+    <string name="permission_denied_message"><![CDATA[If you reject permission, you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]]]></string>
+
+</resources>

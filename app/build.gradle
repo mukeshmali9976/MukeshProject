@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.mukeshproject"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    //Appcompat views and design
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+
+    //Http communication
+    /*compile('org.apache.httpcomponents:httpmime:4.3.6') {
+        exclude module: 'httpclient'
+    }*/
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'org.apache.httpcomponents:httpcore:4.4.1'
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.4'
+
+    //Image loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    //Font support library
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    //Badge count in app icon
+    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
+
+    //Firebase push message
+    compile 'com.google.firebase:firebase-core:9.8.0'
+    compile 'com.google.firebase:firebase-messaging:9.8.0'
+
+    //Location api of google
+    compile 'com.google.android.gms:play-services-location:9.8.0'
+
+    //Map api of google
+    compile 'com.google.android.gms:play-services-maps:9.8.0'
+
+    //For custom calender
+    compile 'com.appeaser.sublimepickerlibrary:sublimepickerlibrary:2.1.1'
+
+    //
+    compile 'org.apache.commons:commons-lang3:3.4'
+
+    compile 'it.sephiroth.android.library.easing:android-easing:1.0.3'
+
+    //Expandable Listview
+    compile 'com.diegocarloslima:fgelv:0.1.+@aar'
+
+    //Swipe Menu
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'
+//    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+//        transitive = true;
+//    }
+
+    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
+    compile 'com.borax12.materialdaterangepicker:library:1.9'
+
+}

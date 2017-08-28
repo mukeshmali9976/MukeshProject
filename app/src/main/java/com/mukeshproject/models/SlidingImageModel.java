@@ -13,4 +13,5 @@ public class SlidingImageModel {
     public void setImage_drawable(int image_drawable) {
         this.image_drawable = image_drawable;
     }
+
 }

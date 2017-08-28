@@ -5,4 +5,5 @@ package com.mukeshproject.models;
  */
 
 public class HomeCategoryModel {
+
 }

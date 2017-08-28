@@ -47,8 +47,7 @@ public class SlidingImageAdapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.layout_sliding_images, view, false);
 
         assert imageLayout != null;
-        final ImageView imageView = (ImageView) imageLayout
-                .findViewById(R.id.image);
+        ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
 
 
         imageView.setImageResource(imageModelArrayList.get(position).getImage_drawable());

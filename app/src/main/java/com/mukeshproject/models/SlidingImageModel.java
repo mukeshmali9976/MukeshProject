@@ -8,6 +8,7 @@ public class SlidingImageModel {
     private int image_drawable;
 
     public int getImage_drawable() {
+
         return image_drawable;
     }
     public void setImage_drawable(int image_drawable) {

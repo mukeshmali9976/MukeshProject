@@ -59,8 +59,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private ArrayList<SlidingImageModel> imageList;
-    private int[] myImageList = new int[]{R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+    private int[] myImageList = new int[]{R.drawable.img2, R.drawable.img3,
+            R.drawable.img2,R.drawable.img3};
 
 
     @Override
@@ -73,6 +73,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         initView();
         return mRootView;
+
+
     }
 
 
@@ -100,11 +102,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         imageList = new ArrayList<>();
         imageList = populateList();
 
-        //viewPager();
-
+        viewPager();
 
 
     }
+
+
 
     private void viewPager(){
         mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
@@ -167,7 +170,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         ArrayList<SlidingImageModel> list = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 4; i++){
             SlidingImageModel imageModel = new SlidingImageModel();
             imageModel.setImage_drawable(myImageList[i]);
             list.add(imageModel);

@@ -1,6 +1,8 @@
 package com.mukeshproject.ui.fragments;
 
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -11,9 +13,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -53,14 +59,14 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private NetworkManager networkManager = null;
     private Activity mActivity;
 
-    private RecyclerView rvHomeCategoryList,rvRecharge;
+    private RecyclerView rvHomeCategoryList, rvRecharge;
 
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private ArrayList<SlidingImageModel> imageList;
     private int[] myImageList = new int[]{R.drawable.img2, R.drawable.img3,
-            R.drawable.img2,R.drawable.img3};
+            R.drawable.img2, R.drawable.img3};
 
 
     @Override
@@ -77,13 +83,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     private void initView() {
 
         List<HomeCategoryModel> homeCategoryList = new ArrayList<>();
         HomeCategoryModel homeCategoryModel;
 
-        for (int i = 0; i < 10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             homeCategoryModel = new HomeCategoryModel();
             homeCategoryList.add(homeCategoryModel);
         }
@@ -93,25 +104,22 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         rvHomeCategoryList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rvHomeCategoryList.setItemAnimator(new DefaultItemAnimator());
-        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(),homeCategoryList,this));
+        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
         rvRecharge.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rvRecharge.setItemAnimator(new DefaultItemAnimator());
-        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(),homeCategoryList,this));
+        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
         imageList = new ArrayList<>();
         imageList = populateList();
 
         viewPager();
-
-
     }
 
 
-
-    private void viewPager(){
+    private void viewPager() {
         mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
-        mPager.setAdapter(new SlidingImageAdapter(getActivity(),imageList));
+        mPager.setAdapter(new SlidingImageAdapter(getActivity(), imageList));
 
         CirclePageIndicator indicator = (CirclePageIndicator)
                 mRootView.findViewById(R.id.indicator);
@@ -123,7 +131,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         indicator.setRadius(5 * density);
 
-        NUM_PAGES =imageList.size();
+        NUM_PAGES = imageList.size();
 
 
         final Handler handler = new Handler();
@@ -141,7 +149,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             public void run() {
                 handler.post(Update);
             }
-        }, 3000, 3000);
+        }, 1000, 1000);
 
 
         indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -166,11 +174,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
 
-    private ArrayList<SlidingImageModel> populateList(){
+    private ArrayList<SlidingImageModel> populateList() {
 
         ArrayList<SlidingImageModel> list = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             SlidingImageModel imageModel = new SlidingImageModel();
             imageModel.setImage_drawable(myImageList[i]);
             list.add(imageModel);
@@ -194,8 +202,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initActionBar("Eazylo", mRootView);
-        setTitle("Eazylo");
+        initActionBar(getActivity().getString(R.string.app_name), mRootView);
+        setTitle(getResources().getString(R.string.app_name));
         if (Utils.isInternetAvailable(mActivity)) {
 
         }
@@ -226,14 +234,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void onItemClick(View view, int position) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.llCategotyMain:
 
                 // click code
-                Toast.makeText(getActivity(),""+position,Toast.LENGTH_LONG).show();
-
+                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_LONG).show();
                 break;
 
         }
     }
+
+
 }

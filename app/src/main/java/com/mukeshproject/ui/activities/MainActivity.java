@@ -1,22 +1,28 @@
 package com.mukeshproject.ui.activities;
 
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +37,7 @@ import com.mukeshproject.utils.Log;
 import com.mukeshproject.utils.TypefaceUtils;
 import com.mukeshproject.utils.Utils;
 
-public class MainActivity extends SlidingActivity{
+public class MainActivity extends SlidingActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
 
@@ -46,6 +52,11 @@ public class MainActivity extends SlidingActivity{
     private MyProgressDialog dialog;
 
     private MenuItem menuItem;
+
+    Boolean doubleBackToExitPressedOnce = false;
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,15 +99,34 @@ public class MainActivity extends SlidingActivity{
         startActivity(intent);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         menuItem = menu.findItem(R.id.action_menu_sync);
+        Log.w("myApp", "onCreateOptionsMenu -started- ");
 
-        return super.onCreateOptionsMenu(menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setQueryHint(getResources().getString(R.string.search_hint_name));
+
+        searchView.setOnQueryTextListener(
+                new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        Log.w("myApp", "onQueryTextSubmit ");
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        Log.w("myApp", "onQueryTextChange ");
+                        return false;
+                    }
+                });
+
+        return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,12 +135,14 @@ public class MainActivity extends SlidingActivity{
                 toggle();
                 break;
             case R.id.action_menu_sync:
-                Toast.makeText(this,"Hjjdcdc",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Search", Toast.LENGTH_LONG).show();
                 break;
+
             case R.id.action_menu_checkin_checkout:
                 Utils.hideKeyboard(this);
                 break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -160,33 +192,46 @@ public class MainActivity extends SlidingActivity{
         if (getSlidingMenu().isMenuShowing()) {
             getSlidingMenu().toggle();
         }
-
         if (getActiveFragment() instanceof HomeFragment) {
             if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
 
                 try {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//                builder.setTitle(R.string.alert);
-                    builder.setCancelable(false);
-                    builder.setMessage("finish");
-                    builder.setPositiveButton(R.string.lbl_yes,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                    finish();
-                                }
-                            });
-                    builder.setNegativeButton(R.string.lbl_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    // create alert dialog
-                    AlertDialog alertDialog = builder.create();
-//                alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    // show it
-                    alertDialog.show();
+
+                    if (doubleBackToExitPressedOnce) {
+                        super.onBackPressed();
+
+                        System.exit(0);
+
+                        return;
+                    }
+                    this.doubleBackToExitPressedOnce = true;
+                    Toast.makeText(this, "Please click BACK again to exit",
+                            Toast.LENGTH_SHORT).show();
+
+
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+////                    builder.setTitle(R.string.alert);
+//                    builder.setCancelable(false);
+//                    builder.setTitle("Exit");
+//                    builder.setMessage("Are sure Exit ??");
+//
+//                    builder.setPositiveButton(R.string.lbl_yes, new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            dialog.dismiss();
+//                            finish();
+//                        }
+//                    });
+//                    builder.setNegativeButton(R.string.lbl_no, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//                    // create alert dialog
+//                    AlertDialog alertDialog = builder.create();
+//                    //alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                    // show it
+//                    alertDialog.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -198,9 +243,4 @@ public class MainActivity extends SlidingActivity{
             replaceFragment(new HomeFragment(), "Home");
         }
     }
-
-
-
-
-
 }

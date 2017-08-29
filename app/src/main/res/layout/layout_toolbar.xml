@@ -4,14 +4,14 @@
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary">
 
-   <!--<ImageView-->
-         <!--android:id="@+id/ivHomeLogo"-->
-         <!--android:layout_width="wrap_content"-->
-         <!--android:layout_height="wrap_content"-->
-         <!--android:layout_gravity="center"-->
-         <!--android:src="@drawable/ic_notification"-->
-         <!--android:scaleType="fitXY"-->
-         <!--android:visibility="gone" />-->
+    <!--<ImageView-->
+    <!--android:id="@+id/ivHomeLogo"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:src="@drawable/ic_notification"-->
+    <!--android:scaleType="fitXY"-->
+    <!--android:visibility="gone" />-->
 
     <ImageView
         android:id="@+id/ivLInfo"
@@ -76,26 +76,24 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_20"
             android:text="task"
+            android:textColor="@color/colorWhite" />
+
+
+        <TextView
+            android:id="@+id/tvBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="0dp"
+            android:minEms="1"
+            android:singleLine="true"
+            android:text="0"
             android:textColor="@color/colorWhite"
-             />
-
-
-
-            <TextView
-                android:id="@+id/tvBadge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:lineSpacingExtra="0dp"
-                android:minEms="1"
-                android:singleLine="true"
-                android:text="0"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/font_12"
-                android:visibility="visible" />
+            android:textSize="@dimen/font_12"
+            android:visibility="visible" />
 
 
     </FrameLayout>

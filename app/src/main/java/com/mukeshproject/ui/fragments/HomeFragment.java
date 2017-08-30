@@ -149,7 +149,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             public void run() {
                 handler.post(Update);
             }
-        }, 1000, 1000);
+        }, 2000, 2000);
 
 
         indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

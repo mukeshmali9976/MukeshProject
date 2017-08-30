@@ -3,7 +3,6 @@ package com.mukeshproject.ui.activities;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,18 +10,10 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +25,6 @@ import com.mukeshproject.ui.slidingmenu.SlidingMenu;
 import com.mukeshproject.ui.views.MyProgressDialog;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Log;
-import com.mukeshproject.utils.TypefaceUtils;
 import com.mukeshproject.utils.Utils;
 
 public class MainActivity extends SlidingActivity {
@@ -189,6 +179,7 @@ public class MainActivity extends SlidingActivity {
 
     @Override
     public void onBackPressed() {
+
         if (getSlidingMenu().isMenuShowing()) {
             getSlidingMenu().toggle();
         }
@@ -210,7 +201,7 @@ public class MainActivity extends SlidingActivity {
 
 
 //                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-////                    builder.setTitle(R.string.alert);
+////                  builder.setTitle(R.string.alert);
 //                    builder.setCancelable(false);
 //                    builder.setTitle("Exit");
 //                    builder.setMessage("Are sure Exit ??");
@@ -243,4 +234,6 @@ public class MainActivity extends SlidingActivity {
             replaceFragment(new HomeFragment(), "Home");
         }
     }
+
+
 }

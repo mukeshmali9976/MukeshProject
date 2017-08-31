@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.mukeshproject.R;
 
@@ -18,7 +19,6 @@ public class ProductItemList extends AppCompatActivity {
         setContentView(R.layout.activity_product_item_list);
 
         gvProductItemList = (GridView)findViewById(R.id.gvproductlist);
-
 
     }
 }

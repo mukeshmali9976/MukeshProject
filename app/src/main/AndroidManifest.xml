@@ -24,7 +24,6 @@
         </activity>
 
         <activity
-
             android:name=".ui.activities.SplashActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:screenOrientation="portrait"
@@ -33,7 +32,6 @@
         </activity>
 
         <activity
-
             android:name=".ui.activities.ProductItemList"
             android:screenOrientation="portrait">
 

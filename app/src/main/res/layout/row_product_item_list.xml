@@ -7,16 +7,14 @@
     android:paddingRight="@dimen/margin_6">
 
     <ImageView
-
         android:id="@+id/ivProductList"
-        android:layout_width="@dimen/margin_100"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/margin_100"
         android:layout_margin="@dimen/margin_10"
         android:padding="@dimen/margin_10"
         android:src="@drawable/download" />
 
     <TextView
-
         android:id="@+id/tvProductName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,10 +30,14 @@
         android:gravity="center"
         android:text="20000" />
 
-    <!--<RatingBar-->
-        <!--android:numStars="5"-->
-        <!--android:id="@+id/rbProductRating"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content" />-->
+    <RatingBar
+        android:id="@+id/rbProductRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_4"
+        android:rating="1" />
+
+
+
 
 </LinearLayout>

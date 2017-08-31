@@ -196,8 +196,7 @@ public class MainActivity extends SlidingActivity {
                         return;
                     }
                     this.doubleBackToExitPressedOnce = true;
-                    Toast.makeText(this, "Please click BACK again to exit",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
 
 //                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -234,6 +233,4 @@ public class MainActivity extends SlidingActivity {
             replaceFragment(new HomeFragment(), "Home");
         }
     }
-
-
 }

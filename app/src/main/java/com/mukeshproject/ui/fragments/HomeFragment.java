@@ -151,7 +151,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             }
         }, 2000, 2000);
 
-
         indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -159,7 +158,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 currentPage = position;
 
             }
-
             @Override
             public void onPageScrolled(int pos, float arg1, int arg2) {
 
@@ -172,8 +170,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         });
 
     }
-
-
     private ArrayList<SlidingImageModel> populateList() {
 
         ArrayList<SlidingImageModel> list = new ArrayList<>();
@@ -238,7 +234,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             case R.id.llCategotyMain:
 
                 // click code
-                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),""+position,Toast.LENGTH_LONG).show();
                 break;
 
         }

@@ -3,16 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.mukeshproject.ui.activities.ProductItemList">
 
     <GridView
         android:id="@+id/gvproductlist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:columnWidth="80dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:numColumns="2">
 
     </GridView>

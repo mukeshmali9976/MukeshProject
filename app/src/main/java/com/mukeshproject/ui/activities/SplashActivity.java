@@ -49,8 +49,8 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
             e.printStackTrace();
         }
     }
-
     @Override
     public void onError(int id, String message) {
+
     }
 }

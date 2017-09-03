@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 import com.mukeshproject.R;
-import com.mukeshproject.models.ProductitemListModel;
+import com.mukeshproject.models.ProductItemListModel;
 
 import java.util.ArrayList;
 
 public class ProductItemList extends AppCompatActivity {
     public static final String TAG = ProductItemList.class.getSimpleName();
     GridView gvProductItemList;
-    ArrayList<ProductitemListModel> productModel;
+    ArrayList<ProductItemListModel> productModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

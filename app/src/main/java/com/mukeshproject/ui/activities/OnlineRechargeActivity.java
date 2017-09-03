@@ -13,9 +13,9 @@ import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 
-public class OnlineBillPayActivity extends BaseAppCompatActivity implements RequestListener {
+public class OnlineRechargeActivity extends BaseAppCompatActivity implements RequestListener {
 
-    private static final String TAG = OnlineBillPayActivity.class.getSimpleName();
+    private static final String TAG = OnlineRechargeActivity.class.getSimpleName();
     public static final String EXTRA_RECHARGE_TYPE = "extra_recharge_type";
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
@@ -25,10 +25,10 @@ public class OnlineBillPayActivity extends BaseAppCompatActivity implements Requ
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_online_bill_pay);
+        setContentView(R.layout.activity_online_recharge);
 
         networkManager = NetworkManager.getInstance();
-        prefManager = CryptoManager.getInstance(OnlineBillPayActivity.this).getPrefs();
+        prefManager = CryptoManager.getInstance(OnlineRechargeActivity.this).getPrefs();
         initView();
         getIntentData();
     }

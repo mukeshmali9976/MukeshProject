@@ -1,11 +1,8 @@
 package com.mukeshproject.ui.fragments;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -13,19 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseFragment;
 import com.mukeshproject.domain.adapters.HomeCategoryAdapter;
@@ -34,18 +23,13 @@ import com.mukeshproject.models.HomeCategoryModel;
 import com.mukeshproject.models.SlidingImageModel;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
-import com.mukeshproject.ui.activities.MainActivity;
-import com.mukeshproject.ui.activities.OnlineBillPayActivity;
+import com.mukeshproject.ui.activities.OnlineRechargeActivity;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 import com.viewpagerindicator.CirclePageIndicator;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -180,7 +164,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onItemClick(View view, int position) {
         switch (view.getId()) {
             case R.id.llCategotyMain:
-                startActivity(new Intent(getActivity(), OnlineBillPayActivity.class).putExtra(OnlineBillPayActivity.EXTRA_RECHARGE_TYPE,position));
+                startActivity(new Intent(getActivity(), OnlineRechargeActivity.class).putExtra(OnlineRechargeActivity.EXTRA_RECHARGE_TYPE,position));
                 break;
         }
     }

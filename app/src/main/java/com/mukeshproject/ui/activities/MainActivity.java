@@ -46,7 +46,6 @@ public class MainActivity extends SlidingActivity {
     Boolean doubleBackToExitPressedOnce = false;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +93,6 @@ public class MainActivity extends SlidingActivity {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         menuItem = menu.findItem(R.id.action_menu_sync);
         Log.w("myApp", "onCreateOptionsMenu -started- ");
-
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
@@ -114,7 +112,6 @@ public class MainActivity extends SlidingActivity {
                         return false;
                     }
                 });
-
         return true;
     }
 
@@ -127,12 +124,10 @@ public class MainActivity extends SlidingActivity {
             case R.id.action_menu_sync:
                 Toast.makeText(this, "Search", Toast.LENGTH_LONG).show();
                 break;
-
             case R.id.action_menu_checkin_checkout:
                 Utils.hideKeyboard(this);
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -185,14 +180,10 @@ public class MainActivity extends SlidingActivity {
         }
         if (getActiveFragment() instanceof HomeFragment) {
             if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
-
                 try {
-
                     if (doubleBackToExitPressedOnce) {
                         super.onBackPressed();
-
                         System.exit(0);
-
                         return;
                     }
                     this.doubleBackToExitPressedOnce = true;

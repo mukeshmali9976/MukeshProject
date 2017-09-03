@@ -16,33 +16,17 @@ public class RequestBuilder extends PARAMS {
 
 
     public static final String METHOD_FETCH_ASSIGNMENTS = "user/availableassignments";
-
-    /**
-     * The constant METHOD_LOGOUT.
-     */
     public static final String METHOD_LOGOUT = "user/logout";
-    /**
-     * The constant METHOD_USER_LOGIN.
-     */
-// to get Login Response
     public static final String METHOD_USER_LOGIN = "user/login";
-    /**
-     * The constant METHOD_USER_REGISTER.
-     */
-// to Register User
     public static final String METHOD_USER_REGISTER = "user/createaccount";
 
-
     public static HashMap<String, String> blankRequest() {
-
         JSONObject jObjReq = new JSONObject();
-
         HashMap<String, String> parameters = new HashMap<>();
 //        parameters.put(TAG_PARAMS, jObjReq.toString());
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
-
 
     public static HashMap<String, String> performLogin(String email, String password, String device_token, String lat, String lng) {
         JSONObject jObjReq = new JSONObject();
@@ -59,6 +43,5 @@ public class RequestBuilder extends PARAMS {
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
-
 
 }

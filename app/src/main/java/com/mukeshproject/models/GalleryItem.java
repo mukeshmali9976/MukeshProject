@@ -5,11 +5,7 @@ import android.os.Parcelable;
 
 import java.io.File;
 
-/**
- * The type Gallery item.
- */
 public class GalleryItem implements Parcelable {
-
     String ext = "";
     boolean isSelected = false;
     String docName;
@@ -33,52 +29,26 @@ public class GalleryItem implements Parcelable {
     String thumbpath;
     String thumbimage;
 
-
     public String getVideoUrl() {
         return videoUrl;
     }
 
-    /**
-     * Sets video url.
-     *
-     * @param videoUrl the video url
-     */
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
 
-    /**
-     * Sets filepath.
-     *
-     * @param filepath the filepath
-     */
     public void setFilepath(String filepath) {
         this.filepath = filepath;
     }
 
-    /**
-     * Is video boolean.
-     *
-     * @return the boolean
-     */
     public boolean isVideo() {
         return isVideo;
     }
 
-    /**
-     * Sets is video.
-     *
-     * @param isVideo the is video
-     */
     public void setIsVideo(boolean isVideo) {
         this.isVideo = isVideo;
     }
 
-    /**
-     * Instantiates a new Gallery item.
-     *
-     * @param in the in
-     */
     protected GalleryItem(Parcel in) {
         ext = in.readString();
         isSelected = in.readByte() != 0;
@@ -101,9 +71,6 @@ public class GalleryItem implements Parcelable {
         thumbimage = in.readString();
     }
 
-    /**
-     * The constant CREATOR.
-     */
     public static final Creator<GalleryItem> CREATOR = new Creator<GalleryItem>() {
         @Override
         public GalleryItem createFromParcel(Parcel in) {
@@ -116,146 +83,70 @@ public class GalleryItem implements Parcelable {
         }
     };
 
-    /**
-     * Is thumb image selected boolean.
-     *
-     * @return the boolean
-     */
     public boolean isThumbImageSelected() {
         return isThumbImageSelected;
     }
 
-    /**
-     * Gets thumbimage.
-     *
-     * @return the thumbimage
-     */
     public String getThumbimage() {
         return thumbimage;
     }
 
-    /**
-     * Gets filepath.
-     *
-     * @return the filepath
-     */
     public String getFilepath() {
         return filepath;
     }
 
-    /**
-     * Gets isthumb.
-     *
-     * @return the isthumb
-     */
     public int getIsthumb() {
         return isthumb;
     }
 
-    /**
-     * Sets isthumb.
-     *
-     * @param isthumb the isthumb
-     */
     public void setIsthumb(int isthumb) {
         this.isthumb = isthumb;
     }
 
-    /**
-     * Gets attachment id.
-     *
-     * @return the attachment id
-     */
     public String getAttachment_id() {
         return attachment_id;
     }
 
-    /**
-     * Gets title.
-     *
-     * @return the title
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * Gets thumb image.
-     *
-     * @return the thumb image
-     */
     public String getThumb_image() {
         return thumb_image;
     }
 
-    /**
-     * Gets file name.
-     *
-     * @return the file name
-     */
     public String getFile_name() {
         return file_name;
     }
 
-    /**
-     * Gets file type.
-     *
-     * @return the file type
-     */
     public String getFile_type() {
         return file_type;
     }
 
-    /**
-     * Gets is external link.
-     *
-     * @return the is external link
-     */
+
     public String getIs_external_link() {
         return is_external_link;
     }
 
-    /**
-     * Gets ref table.
-     *
-     * @return the ref table
-     */
+
     public int getRef_table() {
         return ref_table;
     }
 
-    /**
-     * Gets ref id.
-     *
-     * @return the ref id
-     */
+
     public String getRef_id() {
         return ref_id;
     }
 
-    /**
-     * Gets thumbpath.
-     *
-     * @return the thumbpath
-     */
+
     public String getThumbpath() {
         return thumbpath;
     }
 
-    /**
-     * Instantiates a new Gallery item.
-     */
+
     public GalleryItem() {
     }
 
-    /**
-     * Instantiates a new Gallery item.
-     *
-     * @param isthumb      the isthumb
-     * @param filepath     the filepath
-     * @param thumbpath    the thumbpath
-     * @param isFromServer the is from server
-     */
     public GalleryItem(int isthumb, String filepath, String thumbpath, boolean isFromServer) {
         this.isthumb = isthumb;
         this.filepath = filepath;

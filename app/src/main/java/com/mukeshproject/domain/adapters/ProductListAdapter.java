@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.mukeshproject.R;
 import com.mukeshproject.models.ProductitemListModel;
-import com.mukeshproject.models.SlidingImageModel;
 
 import java.util.ArrayList;
 

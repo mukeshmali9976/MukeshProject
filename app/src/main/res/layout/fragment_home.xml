@@ -17,9 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/margin_6"
-            android:paddingRight="@dimen/margin_6">
+            android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvHomeCategoryList"
@@ -45,8 +43,8 @@
                     android:layout_centerHorizontal="true"
                     android:gravity="bottom"
                     android:padding="10dip"
-                    app:fillColor="#df0623"
-                    app:centered="true"/>
+                    app:centered="true"
+                    app:fillColor="#df0623" />
             </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView

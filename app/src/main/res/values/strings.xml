@@ -50,4 +50,12 @@
     <string name="permission_denied_message"><![CDATA[If you reject permission, you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]]]></string>
 
     <string name="search_hint_name">Search</string>
+    <string name="hint_mobile_number">Mobile Number</string>
+    <string name="lbl_post_paid">Postpaid</string>
+    <string name="hint_amount">Amount</string>
+    <string name="lbl_recharge_now">Recharge Now</string>
+    <string name="lbl_pre_paid">Prepaid</string>
+    <string name="hint_account_number">Account Number</string>
+    <string name="hint_std_number">STD Number</string>
+    <string name="hint_number_wihout_std">Number Without STD</string>
 </resources>

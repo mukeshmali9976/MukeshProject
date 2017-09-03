@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mukeshproject.R;
@@ -34,6 +35,7 @@ import com.mukeshproject.models.SlidingImageModel;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.ui.activities.MainActivity;
+import com.mukeshproject.ui.activities.OnlineBillPayActivity;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 import com.viewpagerindicator.CirclePageIndicator;
@@ -116,59 +118,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
 
-    private void viewPager() {
-        mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
-        mPager.setAdapter(new SlidingImageAdapter(getActivity(), imageList));
-
-        CirclePageIndicator indicator = (CirclePageIndicator)
-                mRootView.findViewById(R.id.indicator);
-
-        indicator.setViewPager(mPager);
-
-        final float density = getResources().getDisplayMetrics().density;
-
-
-        indicator.setRadius(5 * density);
-
-        NUM_PAGES = imageList.size();
-
-
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == NUM_PAGES) {
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 2000, 2000);
-
-        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            @Override
-            public void onPageSelected(int position) {
-                currentPage = position;
-
-            }
-            @Override
-            public void onPageScrolled(int pos, float arg1, int arg2) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int pos) {
-
-            }
-        });
-
-    }
     private ArrayList<SlidingImageModel> populateList() {
 
         ArrayList<SlidingImageModel> list = new ArrayList<>();
@@ -231,12 +180,45 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onItemClick(View view, int position) {
         switch (view.getId()) {
             case R.id.llCategotyMain:
-
-                // click code
-                Toast.makeText(getActivity(),""+position,Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getActivity(), OnlineBillPayActivity.class).putExtra(OnlineBillPayActivity.EXTRA_RECHARGE_TYPE,position));
                 break;
-
         }
+    }
+
+    private void viewPager() {
+        mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
+        mPager.setAdapter(new SlidingImageAdapter(getActivity(), imageList));
+        CirclePageIndicator indicator = (CirclePageIndicator) mRootView.findViewById(R.id.indicator);
+        indicator.setViewPager(mPager);
+        indicator.setRadius(5 * getResources().getDisplayMetrics().density);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                new Handler().post(new Runnable() {
+                    public void run() {
+                        if (currentPage == imageList.size()) {
+                            currentPage = 0;
+                        }
+                        mPager.setCurrentItem(currentPage++, true);
+                    }
+                });
+            }
+        }, 2000, 2000);
+
+        indicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                currentPage = position;
+            }
+            @Override
+            public void onPageScrolled(int pos, float arg1, int arg2) {
+            }
+            @Override
+            public void onPageScrollStateChanged(int pos) {
+
+            }
+        });
+
     }
 
 

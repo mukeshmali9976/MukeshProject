@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8"
                 android:inputType="number"
-                android:text="@string/hint_amount" />
+                android:hint="@string/hint_amount" />
 
 
         </LinearLayout>
@@ -50,5 +50,5 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/margin_8"
         android:text="@string/lbl_recharge_now"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"  />
 </RelativeLayout>

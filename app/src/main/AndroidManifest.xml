@@ -36,6 +36,8 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".ui.activities.OnlineRechargeActivity"></activity>
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,6 +15,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseFragment;
@@ -48,10 +50,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     private static ViewPager mPager;
     private static int currentPage = 0;
-    private static int NUM_PAGES = 0;
+    private static int NUM_PAGES = 4;
     private ArrayList<SlidingImageModel> imageList;
-    private int[] myImageList = new int[]{R.drawable.img2, R.drawable.img3,
-            R.drawable.img2, R.drawable.img3};
+
+    private int[] myImageList = new int[]{R.drawable.img2, R.drawable.img3,R.drawable.img2, R.drawable.img3};
 
 
     @Override
@@ -149,7 +151,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             e.printStackTrace();
         }
     }
-
     @Override
     public void onError(int id, String message) {
         displayError(message);
@@ -175,17 +176,20 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         CirclePageIndicator indicator = (CirclePageIndicator) mRootView.findViewById(R.id.indicator);
         indicator.setViewPager(mPager);
         indicator.setRadius(5 * getResources().getDisplayMetrics().density);
-        new Timer().schedule(new TimerTask() {
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                new Handler().post(new Runnable() {
-                    public void run() {
-                        if (currentPage == imageList.size()) {
-                            currentPage = 0;
-                        }
-                        mPager.setCurrentItem(currentPage++, true);
-                    }
-                });
+                handler.post(Update);
             }
         }, 2000, 2000);
 
@@ -200,10 +204,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onPageScrollStateChanged(int pos) {
 
+
             }
         });
 
     }
-
 
 }

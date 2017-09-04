@@ -108,7 +108,7 @@ public class MainActivity extends SlidingActivity {
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
-                        Log.w("myApp", "onQueryTextChange ");
+                        Log.w("myApp", "onQueryTextChange");
                         return false;
                     }
                 });
@@ -217,6 +217,7 @@ public class MainActivity extends SlidingActivity {
                     e.printStackTrace();
                 }
             } else {
+
                 getSupportFragmentManager().popBackStack();
             }
         } else {

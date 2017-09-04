@@ -49,7 +49,6 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
     private void initView() {
         getIntentData();
 
-
     }
 
     private void getIntentData() {

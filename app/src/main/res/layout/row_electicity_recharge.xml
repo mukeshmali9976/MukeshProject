@@ -28,6 +28,7 @@
                 android:id="@+id/etMobileNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
                 android:hint="@string/hint_mobile_number"
                 android:inputType="phone" />
 
@@ -36,8 +37,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8"
-                android:inputType="number"
-                android:hint="@string/hint_amount" />
+                android:hint="@string/hint_amount"
+                android:inputType="number" />
 
 
         </LinearLayout>
@@ -48,7 +49,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/margin_8"
         android:text="@string/lbl_recharge_now"
-        android:textAllCaps="false"  />
+        android:textAllCaps="false" />
 </RelativeLayout>

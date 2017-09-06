@@ -20,6 +20,7 @@ public class RequestBuilder extends PARAMS {
     public static final String METHOD_USER_LOGIN = "user/login";
     public static final String METHOD_USER_REGISTER = "user/createaccount";
 
+
     public static HashMap<String, String> blankRequest() {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();

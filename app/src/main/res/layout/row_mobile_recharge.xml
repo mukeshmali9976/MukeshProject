@@ -63,20 +63,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8"
-                android:inputType="number"
-                android:hint="@string/hint_amount" />
-
+                android:hint="@string/hint_amount"
+                android:inputType="number" />
 
         </LinearLayout>
+
     </ScrollView>
 
     <Button
-
+        android:layout_marginBottom="@dimen/margin_20"
         android:id="@+id/btnRechargeNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/margin_20"
         android:text="@string/lbl_recharge_now"
         android:textAllCaps="false" />
+
 </RelativeLayout>

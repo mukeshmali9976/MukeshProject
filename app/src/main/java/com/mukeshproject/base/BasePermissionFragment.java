@@ -137,5 +137,6 @@ public class BasePermissionFragment extends BaseFragment {
                 }
             }, null);
         }
+
     }
 }

@@ -204,7 +204,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onPageScrollStateChanged(int pos) {
 
-
             }
         });
 

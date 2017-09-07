@@ -18,7 +18,6 @@ import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
-import com.mukeshproject.utils.ObscuredSharedPreferences;
 import com.mukeshproject.utils.Utils;
 
 public class OnlineRechargeActivity extends BaseAppCompatActivity implements RequestListener {
@@ -58,12 +57,10 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
             if (getIntent().getIntExtra(EXTRA_RECHARGE_TYPE, -1) == 0) {
                 view = LayoutInflater.from(this).inflate(R.layout.row_mobile_recharge, null);
                 llRecharge.addView(view);
-
                 etMobileNumber = (EditText) view.findViewById(R.id.etMobileNumber);
                 spOperatorName = (Spinner) view.findViewById(R.id.spOperatorName);
                 spCircle = (Spinner) view.findViewById(R.id.spCircle);
                 etAmount = (EditText) view.findViewById(R.id.etAmount);
-
 
             } else if (getIntent().getIntExtra(EXTRA_RECHARGE_TYPE, -1) == 1) {
                 view = LayoutInflater.from(this).inflate(R.layout.row_broadband_recharge, null);
@@ -107,5 +104,8 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
     @Override
     public void onError(int id, String message) {
         displayError(message);
+
     }
+
+
 }

@@ -44,5 +44,4 @@ public class RequestBuilder extends PARAMS {
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
-
 }

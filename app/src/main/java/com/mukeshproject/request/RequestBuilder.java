@@ -29,7 +29,7 @@ public class RequestBuilder extends PARAMS {
         return parameters;
     }
 
-    public static HashMap<String, String> performLogin(String email, String password, String device_token, String lat, String lng) {
+    public static HashMap<String, String> performLogin(String email, String password, String device_token) {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();
         try {

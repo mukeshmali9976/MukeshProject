@@ -40,7 +40,6 @@
 
     </style>
 
-
     <!-- Theme NoActionBar -->
     <style name="AppTheme.NoActionBar">
         <item name="android:windowDisablePreview">true</item>

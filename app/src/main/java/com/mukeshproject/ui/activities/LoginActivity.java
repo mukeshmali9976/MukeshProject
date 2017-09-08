@@ -11,6 +11,8 @@ import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
+import com.mukeshproject.network.RequestMethod;
+import com.mukeshproject.request.RequestBuilder;
 import com.mukeshproject.utils.CryptoManager;
 
 /**
@@ -36,7 +38,7 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
         networkManager = NetworkManager.getInstance();
         prefManager = CryptoManager.getInstance(LoginActivity.this).getPrefs();
 
-        initActionBar(getResources().getString(R.string.app_name));
+        initActionBar(getResources().getString(R.string.title_login_user));
 
         initView();
     }
@@ -50,7 +52,8 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
         tvErorrPassword = (TextView) findViewById(R.id.tvErorrPassword);
 
         findViewById(R.id.btnLogin).setOnClickListener(this);
-        findViewById(R.id.btnForgotPassword).setOnClickListener(this);
+        findViewById(R.id.btnRegister).setOnClickListener(this);
+        findViewById(R.id.tvForgotPassword).setOnClickListener(this);
     }
 
     @Override
@@ -65,7 +68,6 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
         super.onStop();
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -73,8 +75,12 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
                 performLogin();
                 break;
 
-            case R.id.btnForgotPassword:
-                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            case R.id.btnRegister:
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                break;
+
+            case R.id.tvForgotPassword:
+                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
                 break;
         }
 
@@ -93,7 +99,6 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
 
     @Override
     public void onError(int id, String message) {
-
 
     }
 }

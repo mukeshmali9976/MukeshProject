@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.mukeshproject.R;
@@ -13,34 +12,38 @@ import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.utils.CryptoManager;
 
-public class ForgotPasswordActivity extends BaseAppCompatActivity implements View.OnClickListener, RequestListener {
+public class RegisterActivity extends BaseAppCompatActivity implements View.OnClickListener,RequestListener {
 
-    public static final String TAG = ForgotPasswordActivity.class.getSimpleName();
+    public static final String TAG = RegisterActivity.class.getSimpleName();
 
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
 
-    EditText etEmail;
-
+    EditText etFirstName,etEmail,etContactNumber,etPassword,etConfirmPassword;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_register);
 
         networkManager = NetworkManager.getInstance();
-        prefManager = CryptoManager.getInstance(ForgotPasswordActivity.this).getPrefs();
+        prefManager = CryptoManager.getInstance(RegisterActivity.this).getPrefs();
 
-        initActionBar(getResources().getString(R.string.title_forgot_password));
+        initActionBar(getResources().getString(R.string.title_register_user));
 
         initView();
-
     }
 
     private void initView() {
 
+        etFirstName = (EditText)findViewById(R.id.etFirstName);
         etEmail = (EditText)findViewById(R.id.etEmail);
-        findViewById(R.id.btnSubmit).setOnClickListener(this);
+        etContactNumber = (EditText)findViewById(R.id.etContactNumber);
+        etPassword = (EditText)findViewById(R.id.etPassword);
+        etConfirmPassword = (EditText)findViewById(R.id.etConfirmPassword);
+
+        findViewById(R.id.btnRegister).setOnClickListener(this);
+
     }
 
     @Override
@@ -56,6 +59,11 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements Vie
     }
 
     @Override
+    public void onClick(View view) {
+
+    }
+
+    @Override
     public void onSuccess(int id, String response) {
 
     }
@@ -64,14 +72,4 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements Vie
     public void onError(int id, String message) {
 
     }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId())
-        {
-
-        }
-
-    }
-
 }

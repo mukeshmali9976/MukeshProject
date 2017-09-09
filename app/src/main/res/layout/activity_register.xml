@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,17 +7,11 @@
     android:orientation="vertical"
     tools:context="com.mukeshproject.ui.activities.RegisterActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/layout_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <include layout="@layout/layout_toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:orientation="vertical"
         android:padding="@dimen/margin_15">
 
@@ -39,13 +33,13 @@
             android:visibility="gone" />
 
         <EditText
-            android:imeOptions="actionNext"
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10"
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_email"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:padding="@dimen/margin_10" />
 
@@ -58,14 +52,14 @@
             android:visibility="gone" />
 
         <EditText
-            android:imeOptions="actionNext"
-            android:inputType="number"
             android:id="@+id/etContactNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10"
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_contact_number"
+            android:imeOptions="actionNext"
+            android:inputType="number"
             android:padding="@dimen/margin_10" />
 
         <TextView
@@ -77,14 +71,14 @@
             android:visibility="gone" />
 
         <EditText
-            android:imeOptions="actionNext"
-            android:inputType="numberPassword"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10"
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_password"
+            android:imeOptions="actionNext"
+            android:inputType="numberPassword"
             android:padding="@dimen/margin_10" />
 
         <TextView
@@ -96,22 +90,22 @@
             android:visibility="gone" />
 
         <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:background="@drawable/rounded_border_edittext"
+            android:hint="@string/hint_confirm_password"
             android:imeOptions="actionDone"
             android:inputType="numberPassword"
-            android:layout_marginTop="@dimen/margin_10"
-            android:id="@+id/etConfirmPassword"
-            android:background="@drawable/rounded_border_edittext"
-            android:padding="@dimen/margin_10"
-            android:hint="@string/hint_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:padding="@dimen/margin_10" />
 
         <Button
-            android:layout_marginTop="@dimen/margin_15"
             android:id="@+id/btnRegister"
-            android:text="@string/lbl_register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15"
+            android:text="@string/lbl_register"
+            android:textAllCaps="false" />
     </LinearLayout>
-
 </LinearLayout>

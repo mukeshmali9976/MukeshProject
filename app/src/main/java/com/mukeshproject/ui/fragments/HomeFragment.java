@@ -98,9 +98,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
         imageList = new ArrayList<>();
-        imageList = populateList();
+       // imageList = populateList();
 
-        viewPager();
+        //viewPager();
     }
 
 
@@ -110,7 +110,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         for (int i = 0; i < 4; i++) {
             SlidingImageModel imageModel = new SlidingImageModel();
-            imageModel.setImage_drawable(myImageList[i]);
+         //   imageModel.setImage_drawable(myImageList[i]);
             list.add(imageModel);
         }
 

@@ -15,16 +15,12 @@ public class RequestBuilder extends PARAMS {
     private static final String TAG = RequestBuilder.class.getSimpleName();
 
 
-    public static final String METHOD_FETCH_ASSIGNMENTS = "user/availableassignments";
-    public static final String METHOD_LOGOUT = "user/logout";
-    public static final String METHOD_USER_LOGIN = "user/login";
-    public static final String METHOD_USER_REGISTER = "user/createaccount";
+    public static final String METHOD_SETTING = "/api";
 
 
     public static HashMap<String, String> blankRequest() {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();
-//        parameters.put(TAG_PARAMS, jObjReq.toString());
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }

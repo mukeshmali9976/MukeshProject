@@ -5,14 +5,41 @@ package com.mukeshproject.models;
  */
 
 public class SlidingImageModel {
-    private int image_drawable;
 
-    public int getImage_drawable() {
+    private String alt;
+    private String link;
+    private String ID;
+    private String SliderImage;
 
-        return image_drawable;
+    public String getAlt() {
+        return alt;
     }
-    public void setImage_drawable(int image_drawable) {
-        this.image_drawable = image_drawable;
+
+    public void setAlt(String alt) {
+        this.alt = alt;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getSliderImage() {
+        return SliderImage;
+    }
+
+    public void setSliderImage(String sliderImage) {
+        SliderImage = sliderImage;
+    }
 }

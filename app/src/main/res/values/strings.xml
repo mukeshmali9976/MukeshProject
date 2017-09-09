@@ -59,6 +59,9 @@
     <string name="hint_std_number">STD Number</string>
     <string name="hint_number_wihout_std">Number Without STD</string>
 
+    <!--Menu Fragment-->
+    <string name="lbl_back">Back</string>
+
     <!--Login-->
 
     <string name="hint_email">Email</string>
@@ -78,5 +81,6 @@
     <string name="erorr_contact_number">Please enter contact number</string>
     <string name="error_email_address">Please enter email address</string>
     <string name="error_password_empty">Please enter password</string>
+
 
 </resources>

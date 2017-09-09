@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.google.gson.Gson;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
+import com.mukeshproject.models.SettingResponse;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
+import com.mukeshproject.network.RequestMethod;
+import com.mukeshproject.request.RequestBuilder;
+import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 
@@ -16,6 +21,7 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
     private static final String TAG = SplashActivity.class.getSimpleName();
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
+    private int reqIDSetting = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,8 +30,9 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
 
         networkManager = NetworkManager.getInstance();
         prefManager = CryptoManager.getInstance(SplashActivity.this).getPrefs();
+        getSettingData();
 
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+
     }
 
     @Override
@@ -40,17 +47,30 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
         super.onStop();
     }
 
+    private void getSettingData() {
+        networkManager.isProgressBarVisible(false);
+        reqIDSetting = networkManager.addRequest(RequestBuilder.blankRequest(), this, RequestMethod.POST, RequestBuilder.METHOD_SETTING);
+    }
+
     @Override
     public void onSuccess(int id, String response) {
         try {
             if (!Utils.isEmptyString(response)) {
+                if (reqIDSetting == id) {
+                    SettingResponse settingResponse = new Gson().fromJson(response, SettingResponse.class);
+                    if (settingResponse.getStatus().equalsIgnoreCase(Constants.RESPONSE_200)) {
+                        prefManager.edit().putString(Constants.PREF_SETTING_DATA, response).apply();
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @Override
     public void onError(int id, String message) {
-
+        displayError(message);
     }
 }

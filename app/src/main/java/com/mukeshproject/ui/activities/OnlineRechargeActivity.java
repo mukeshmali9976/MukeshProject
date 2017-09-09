@@ -90,10 +90,7 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
     public void onSuccess(int id, String response) {
         try {
             if (!Utils.isEmptyString(response)) {
-                ProductitemListModel productitemListModel = new Gson().fromJson(response, ProductitemListModel.class);
-                if (productitemListModel.getStatus() == Constants.RESPONSE_200) {
-                    //
-                }
+
 
             }
         } catch (Exception e) {

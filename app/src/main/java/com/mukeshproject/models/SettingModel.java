@@ -10,6 +10,7 @@ public class SettingModel {
 
     private ArrayList<Userdetails> userdetails = new ArrayList<>();
     private ArrayList<MenuResponse> menudetails = new ArrayList<>();
+    private ArrayList<SlidingImageModel> slider = new ArrayList<>();
 
     public ArrayList<Userdetails> getUserdetails() {
         return userdetails;
@@ -25,5 +26,13 @@ public class SettingModel {
 
     public void setMenudetails(ArrayList<MenuResponse> menudetails) {
         this.menudetails = menudetails;
+    }
+
+    public ArrayList<SlidingImageModel> getSlider() {
+        return slider;
+    }
+
+    public void setSlider(ArrayList<SlidingImageModel> slider) {
+        this.slider = slider;
     }
 }

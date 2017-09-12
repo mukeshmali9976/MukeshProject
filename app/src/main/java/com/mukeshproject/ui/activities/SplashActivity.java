@@ -60,7 +60,8 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
                     SettingResponse settingResponse = new Gson().fromJson(response, SettingResponse.class);
                     if (settingResponse.getStatus().equalsIgnoreCase(Constants.RESPONSE_200)) {
                         prefManager.edit().putString(Constants.PREF_SETTING_DATA, response).apply();
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                     }
                 }
             }

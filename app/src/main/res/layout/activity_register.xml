@@ -78,7 +78,7 @@
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_password"
             android:imeOptions="actionNext"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:padding="@dimen/margin_10" />
 
         <TextView
@@ -97,7 +97,7 @@
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_confirm_password"
             android:imeOptions="actionDone"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:padding="@dimen/margin_10" />
 
         <Button

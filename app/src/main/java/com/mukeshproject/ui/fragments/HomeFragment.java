@@ -17,15 +17,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseFragment;
 import com.mukeshproject.domain.adapters.HomeCategoryAdapter;
 import com.mukeshproject.domain.adapters.SlidingImageAdapter;
 import com.mukeshproject.models.HomeCategoryModel;
+import com.mukeshproject.models.SettingResponse;
 import com.mukeshproject.models.SlidingImageModel;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.ui.activities.OnlineRechargeActivity;
+import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 import com.viewpagerindicator.CirclePageIndicator;
@@ -45,15 +48,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
     private Activity mActivity;
-
+    private SettingResponse settingResponse = null;
     private RecyclerView rvHomeCategoryList, rvRecharge;
 
     private static ViewPager mPager;
     private static int currentPage = 0;
-    private static int NUM_PAGES = 4;
+    private static int NUM_PAGES = 5;
     private ArrayList<SlidingImageModel> imageList;
-
-    private int[] myImageList = new int[]{R.drawable.img2, R.drawable.img3,R.drawable.img2, R.drawable.img3};
 
 
     @Override
@@ -66,8 +67,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         initView();
         return mRootView;
-
-
     }
 
     @Override
@@ -78,12 +77,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     private void initView() {
 
+        settingResponse = new Gson().fromJson(prefManager.getString(Constants.PREF_SETTING_DATA, ""), SettingResponse.class);
         List<HomeCategoryModel> homeCategoryList = new ArrayList<>();
         HomeCategoryModel homeCategoryModel;
 
         for (int i = 0; i < 10; i++) {
             homeCategoryModel = new HomeCategoryModel();
             homeCategoryList.add(homeCategoryModel);
+
+
         }
 
         rvHomeCategoryList = (RecyclerView) mRootView.findViewById(R.id.rvHomeCategoryList);
@@ -98,24 +100,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
         imageList = new ArrayList<>();
-       // imageList = populateList();
 
-        //viewPager();
+
+        viewPager();
     }
 
-
-    private ArrayList<SlidingImageModel> populateList() {
-
-        ArrayList<SlidingImageModel> list = new ArrayList<>();
-
-        for (int i = 0; i < 4; i++) {
-            SlidingImageModel imageModel = new SlidingImageModel();
-         //   imageModel.setImage_drawable(myImageList[i]);
-            list.add(imageModel);
-        }
-
-        return list;
-    }
 
     @Override
     public void onStart() {
@@ -172,7 +161,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     private void viewPager() {
         mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
-        mPager.setAdapter(new SlidingImageAdapter(getActivity(), imageList));
+        mPager.setAdapter(new SlidingImageAdapter(getActivity(),settingResponse.getResult().getSlider() ));
         CirclePageIndicator indicator = (CirclePageIndicator) mRootView.findViewById(R.id.indicator);
         indicator.setViewPager(mPager);
         indicator.setRadius(5 * getResources().getDisplayMetrics().density);

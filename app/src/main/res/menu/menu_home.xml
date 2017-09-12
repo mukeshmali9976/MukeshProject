@@ -2,18 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-
         android:id="@+id/action_menu_sync"
-        android:icon="@android:drawable/ic_menu_search"
+        android:icon="@drawable/ic_search_white_24dp"
         android:orderInCategory="2"
         android:title="@string/lbl_menu"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always|collapseActionView" />
 
     <item
-
         android:id="@+id/action_menu_checkin_checkout"
-        android:icon="@drawable/ic_drawer_menu"
+        android:icon="@drawable/ic_shopping_cart_white_24dp"
         android:orderInCategory="2"
         android:title="@string/lbl_menu"
         app:showAsAction="always|collapseActionView" />

@@ -81,6 +81,7 @@
     <string name="erorr_contact_number">Please enter contact number</string>
     <string name="error_email_address">Please enter email address</string>
     <string name="error_password_empty">Please enter password</string>
+    <string name="lbl_category">Catogary</string>
 
 
 </resources>

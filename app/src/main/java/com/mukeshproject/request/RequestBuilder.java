@@ -16,6 +16,7 @@ public class RequestBuilder extends PARAMS {
 
 
     public static final String METHOD_SETTING = "/api";
+    public static final String METHOD_PRODUCT_LIST = "/api/productlist";
 
 
     public static HashMap<String, String> blankRequest() {

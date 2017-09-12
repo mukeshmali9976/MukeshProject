@@ -19,6 +19,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Recharge or Pay for" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvRecharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,7 +39,10 @@
                 <android.support.v4.view.ViewPager
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/margin_200" />
+                    android:layout_height="@dimen/margin_200"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
 
                 <com.viewpagerindicator.CirclePageIndicator
                     android:id="@+id/indicator"
@@ -36,22 +51,10 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:gravity="bottom"
-                    android:padding="10dip"
+                    android:padding="12dip"
                     app:centered="true"
                     app:fillColor="#df0623" />
             </RelativeLayout>
-
-            <TextView
-
-                android:gravity="center"
-                android:text="Recharge or Pay for"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvRecharge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvHomeCategoryList"

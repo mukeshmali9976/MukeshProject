@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,6 +53,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
     private ArrayList<MenuResponse> listMenuResponse;
     private MenuAdapter menuAdapter;
     private String menuString;
+    private TextView tvBackButton;
 
     private int reqIdLogout = -1;
     private DisplayImageOptions options;
@@ -79,14 +81,13 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
 
     private void initView() {
 
-        mRootView.findViewById(R.id.tvBackButton).setOnClickListener(this);
+        tvBackButton = (TextView) mRootView.findViewById(R.id.tvBackButton);
+        tvBackButton.setOnClickListener(this);
 
         settingResponse = new Gson().fromJson(prefManager.getString(Constants.PREF_SETTING_DATA, ""), SettingResponse.class);
         rvMenu = (RecyclerView) mRootView.findViewById(R.id.rvMenu);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         rvMenu.setLayoutManager(mLayoutManager);
-        Animation animation = AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left);
-       // rvMenu.setItemAnimator(animation);
         setAdapterData(Constants.MENU_MAIN, settingResponse.getResult().getMenudetails(), false);
 
     }
@@ -96,9 +97,12 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
         switch (v.getId()) {
             case R.id.tvBackButton:
                 if (menuString.equalsIgnoreCase(Constants.MENU_MAIN)) {
+                    tvBackButton.setText(getString(R.string.lbl_category));
                     setAdapterData(Constants.MENU_MAIN, settingResponse.getResult().getMenudetails(), false);
+
                 } else if (menuString.equalsIgnoreCase(Constants.MENU_SUB_MENU)) {
                     menuString = Constants.MENU_MAIN;
+                    tvBackButton.setText(settingResponse.getResult().getMenudetails().get(mPostion).getMenu_name());
                     setAdapterData(Constants.MENU_SUB_MENU, settingResponse.getResult().getMenudetails().get(mPostion).getSubmenu_details(), true);
                 }
                 break;
@@ -137,17 +141,20 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
                 if (menu.equalsIgnoreCase(Constants.MENU_MAIN)) {
                     mPostion = position;
                     if (settingResponse.getResult().getMenudetails().get(position).getSubmenu_details().size() > 0) {
+                        tvBackButton.setText(settingResponse.getResult().getMenudetails().get(position).getMenu_name());
                         setAdapterData(Constants.MENU_SUB_MENU, settingResponse.getResult().getMenudetails().get(position).getSubmenu_details(), true);
                     }
                 } else if (menu.equalsIgnoreCase(Constants.MENU_SUB_MENU)) {
                     if (mPostion != -1) {
                         if (settingResponse.getResult().getMenudetails().get(mPostion).getSubmenu_details().get(position).getSubsubmenudetails().size() > 0) {
+                            tvBackButton.setText(settingResponse.getResult().getMenudetails().get(mPostion).getSubmenu_details().get(position).getSubmenu());
                             setAdapterData(Constants.MENU_SUB_OF_SUB_MENU, settingResponse.getResult().getMenudetails().get(mPostion).getSubmenu_details().get(position).getSubsubmenudetails(), true);
                         }
                     }
                 } else {
+                    ((MainActivity) getActivity()).getSlidingMenu().toggle(true);
                     ((MainActivity) getActivity()).clearBackStack();
-                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                    ((MainActivity) getActivity()).addFragment(new HomeFragment());
                 }
                 break;
         }
@@ -156,9 +163,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
 
     private void setAdapterData(String menu, ArrayList<MenuResponse> menuResponsesList, boolean isBackVisible) {
         if (isBackVisible) {
-            mRootView.findViewById(R.id.tvBackButton).setVisibility(View.VISIBLE);
+            tvBackButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_blue, 0, 0, 0);
         } else {
-            mRootView.findViewById(R.id.tvBackButton).setVisibility(View.GONE);
+            tvBackButton.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
         menuAdapter = new MenuAdapter(getActivity(), menuResponsesList, menu, this);
         rvMenu.setAdapter(menuAdapter);

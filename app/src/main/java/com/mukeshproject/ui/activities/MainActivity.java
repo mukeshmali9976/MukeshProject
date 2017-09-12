@@ -102,7 +102,7 @@ public class MainActivity extends SlidingActivity {
                 new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextSubmit(String query) {
-                        Log.w("myApp", "onQueryTextSubmit ");
+                        Log.w("myApp", "onQueryTextSubmit");
                         return false;
                     }
 
@@ -190,29 +190,6 @@ public class MainActivity extends SlidingActivity {
                     Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
 
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-////                  builder.setTitle(R.string.alert);
-//                    builder.setCancelable(false);
-//                    builder.setTitle("Exit");
-//                    builder.setMessage("Are sure Exit ??");
-//
-//                    builder.setPositiveButton(R.string.lbl_yes, new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            dialog.dismiss();
-//                            finish();
-//                        }
-//                    });
-//                    builder.setNegativeButton(R.string.lbl_no, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.dismiss();
-//                        }
-//                    });
-//                    // create alert dialog
-//                    AlertDialog alertDialog = builder.create();
-//                    //alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                    // show it
-//                    alertDialog.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

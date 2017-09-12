@@ -10,10 +10,16 @@
         android:id="@+id/tvBackButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_menu_back_white_normal"
-        android:drawablePadding="@dimen/margin_18"
-        android:padding="@dimen/margin_10"
-        android:text="@string/lbl_back" />
+        android:drawableLeft="@drawable/ic_blue"
+        android:gravity="center"
+        android:padding="@dimen/margin_16"
+        android:text="@string/lbl_category"
+        android:textSize="@dimen/font_18" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/seperator"
+        android:background="@color/colorAccent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvMenu"

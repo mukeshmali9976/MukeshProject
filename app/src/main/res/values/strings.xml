@@ -13,7 +13,6 @@
     <string name="lbl_app_update">App Update</string>
     <string name="btn_not_now">Not Now</string>
     <string name="btn_update">Update</string>
-
     <string name="crop_image">Crop Image</string>
     <string name="bullet">\u2022</string>
     <string name="bullet_big">\u26AB</string>
@@ -77,11 +76,14 @@
     <string name="lbl_register">Create a New Account</string>
 
     <!--Error message-->
+
     <string name="erorr_first_name">Please enter first name</string>
     <string name="erorr_contact_number">Please enter contact number</string>
     <string name="error_email_address">Please enter email address</string>
     <string name="error_password_empty">Please enter password</string>
     <string name="lbl_category">Catogary</string>
 
-
+    <string name="lbl_base_catagary">Base Catagary</string>
+    <string name="hint_base_catagary">private</string>
+    
 </resources>

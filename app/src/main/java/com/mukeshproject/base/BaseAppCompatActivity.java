@@ -65,16 +65,16 @@ public class BaseAppCompatActivity extends AppCompatActivity {
                 actionBar.setDisplayShowCustomEnabled(true);
                 mActionBarTitle = new TextView(this);
                 ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-//        params.setMargins(0, 0, 15, 0);
+//              params.setMargins(0, 0, 15, 0);
                 params.gravity = Gravity.CENTER;
                 mActionBarTitle.setGravity(Gravity.CENTER);
                 mActionBarTitle.setMaxEms(15);
                 mActionBarTitle.setTextColor(ContextCompat.getColor(this, R.color.colorWhite));
                 mActionBarTitle.setSingleLine(true);
-//        mActionBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.font_actionbar_title));
+//              mActionBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.font_actionbar_title));
                 TypefaceUtils.getInstance(this).applyTypeface(mActionBarTitle, TypefaceUtils.SEMI_BOLD);
                 actionBar.setCustomView(mActionBarTitle, params);
-//                mActionBarTitle.setTypeface(Typeface.DEFAULT_BOLD);
+//              mActionBarTitle.setTypeface(Typeface.DEFAULT_BOLD);
                 mActionBarTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.font_18));
 
                 if (!TextUtils.isEmpty(title)) {

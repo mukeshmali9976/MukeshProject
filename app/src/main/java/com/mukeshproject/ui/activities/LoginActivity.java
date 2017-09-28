@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
-import com.mukeshproject.network.RequestMethod;
-import com.mukeshproject.request.RequestBuilder;
 import com.mukeshproject.utils.CryptoManager;
 
 /**
@@ -24,7 +21,7 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
     public static final String TAG = LoginActivity.class.getSimpleName();
     private int reqIdLogin = -1;
 
-    private EditText etEmail, etPassword;
+    private EditText etEmail,etPassword;
     private TextView tvErorrEmail, tvErorrPassword;
 
     private SharedPreferences prefManager = null;
@@ -45,11 +42,11 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
 
     private void initView() {
 
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
+        etEmail = (EditText)findViewById(R.id.etEmail);
+        etPassword = (EditText)findViewById(R.id.etPassword);
 
-        tvErorrEmail = (TextView) findViewById(R.id.tvErorrEmail);
-        tvErorrPassword = (TextView) findViewById(R.id.tvErorrPassword);
+        tvErorrEmail = (TextView)findViewById(R.id.tvErorrEmail);
+        tvErorrPassword = (TextView)findViewById(R.id.tvErorrPassword);
 
         findViewById(R.id.btnLogin).setOnClickListener(this);
         findViewById(R.id.btnRegister).setOnClickListener(this);
@@ -94,6 +91,8 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
 
     @Override
     public void onSuccess(int id, String response) {
+
+
 
     }
 

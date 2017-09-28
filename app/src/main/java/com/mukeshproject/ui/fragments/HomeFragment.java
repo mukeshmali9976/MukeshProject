@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,8 +14,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseFragment;
@@ -85,9 +82,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             homeCategoryModel = new HomeCategoryModel();
             homeCategoryList.add(homeCategoryModel);
 
-
         }
-
         rvHomeCategoryList = (RecyclerView) mRootView.findViewById(R.id.rvHomeCategoryList);
         rvRecharge = (RecyclerView) mRootView.findViewById(R.id.rvRecharge);
 
@@ -101,10 +96,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
         imageList = new ArrayList<>();
 
-
         viewPager();
     }
-
 
     @Override
     public void onStart() {

@@ -29,7 +29,8 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvRecharge"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_8" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -60,7 +61,8 @@
                 android:id="@+id/rvHomeCategoryList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_6" />
+                android:layout_marginTop="@dimen/margin_6"
+                android:padding="@dimen/margin_8" />
 
         </LinearLayout>
 

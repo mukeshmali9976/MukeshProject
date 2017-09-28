@@ -1,14 +1,13 @@
 package com.mukeshproject.ui.activities;
 
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.widget.GridView;
-
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
+import com.mukeshproject.domain.adapters.ProductListAdapter;
 import com.mukeshproject.models.ProductitemListModel;
+import com.mukeshproject.models.SettingResponse;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.network.RequestMethod;
@@ -20,9 +19,10 @@ import java.util.ArrayList;
 public class ProductItemList extends BaseAppCompatActivity implements RequestListener {
 
     public static final String TAG = ProductItemList.class.getSimpleName();
+
     private SharedPreferences prefmanager = null;
     private NetworkManager networkManager = null;
-
+    private SettingResponse settingResponse = null;
     private int reqIDSetting = -1;
 
     GridView gvProductItemList;
@@ -50,6 +50,7 @@ public class ProductItemList extends BaseAppCompatActivity implements RequestLis
     private void init() {
 
         gvProductItemList = (GridView)findViewById(R.id.gvProductItemList);
+        gvProductItemList.setAdapter(new ProductListAdapter(this,settingResponse.getResult().getProductlist()));
 
     }
 
@@ -67,7 +68,6 @@ public class ProductItemList extends BaseAppCompatActivity implements RequestLis
 
     @Override
     public void onSuccess(int id, String response) {
-
 
 
     }

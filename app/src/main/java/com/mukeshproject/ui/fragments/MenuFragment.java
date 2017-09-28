@@ -1,28 +1,15 @@
 package com.mukeshproject.ui.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -32,12 +19,11 @@ import com.mukeshproject.models.MenuResponse;
 import com.mukeshproject.models.SettingResponse;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
-import com.mukeshproject.ui.activities.LoginActivity;
 import com.mukeshproject.ui.activities.MainActivity;
+import com.mukeshproject.ui.activities.ProductItemList;
 import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -154,7 +140,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
                 } else {
                     ((MainActivity) getActivity()).getSlidingMenu().toggle(true);
                     ((MainActivity) getActivity()).clearBackStack();
-                    ((MainActivity) getActivity()).addFragment(new HomeFragment());
+                   ((MainActivity) getActivity()).addFragment(new HomeFragment());
+                    //startActivity(new Intent(getContext(), ProductItemList.class));
                 }
                 break;
         }

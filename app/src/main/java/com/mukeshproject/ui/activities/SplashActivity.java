@@ -3,7 +3,6 @@ package com.mukeshproject.ui.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import com.google.gson.Gson;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;

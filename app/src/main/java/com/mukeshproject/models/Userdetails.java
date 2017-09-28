@@ -5,6 +5,7 @@ package com.mukeshproject.models;
  */
 
 public class Userdetails {
+
     private String phone;
     private String joindate;
     private String state;

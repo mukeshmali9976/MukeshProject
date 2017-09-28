@@ -13,7 +13,7 @@
         android:top="@dimen/margin_6">
         <bitmap
             android:gravity="end|right"
-            android:src="@drawable/ic_menu_back_pressed" />
+            android:src="@drawable/ic_spinner_down_blue" />
     </item>
     <item
         android:left="-2dp"

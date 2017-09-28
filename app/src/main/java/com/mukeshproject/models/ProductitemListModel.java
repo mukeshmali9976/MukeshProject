@@ -1,63 +1,37 @@
 package com.mukeshproject.models;
 
 /**
- * Created by lenovo pc on 30/08/2017.
+ * Created by lenovo pc on 25/09/2017.
  */
 
-public class ProductitemListModel extends BaseModel {
+public class ProductitemListModel {
 
     private String weight;
-
     private String subcat_id;
-
     private String stock_quentity;
-
     private String cat_id;
-
     private String height;
-
     private String description;
-
     private String length;
-
     private String product_image;
-
     private String bulkproduct;
-
-    private String focus_keyword ;
-
+    private String focus_keyword;
     private String sku_code;
-
     private String product_price;
-
     private String width;
-
     private String color_name;
-
     private String image;
-
     private String product_url;
-
     private String seotitle;
-
     private String short_desc;
-
-    private String product_name ;
-
+    private String product_name;
     private String backorder;
-
     private String size;
-
     private String subsubcat_id;
-
     private String meta_discription;
-
     private String slug;
-
     private String stock_status;
-
     private String p_id;
-
     private String product_vendor_price;
 
     public String getWeight() {

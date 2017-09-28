@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
@@ -20,6 +21,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements View.OnCl
     private NetworkManager networkManager = null;
 
     EditText etFirstName,etEmail,etContactNumber,etPassword,etConfirmPassword;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -40,7 +40,7 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
 
         networkManager = NetworkManager.getInstance();
         prefManager = CryptoManager.getInstance(OnlineRechargeActivity.this).getPrefs();
-
+        initActionBar(getResources().getString(R.string.title_login_user));
         initView();
 
     }

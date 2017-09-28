@@ -14,10 +14,7 @@ public class Constants {
 
     public static final String PREF_SETTING_DATA = "setting_data";
 
-
     public static String MENU_MAIN = "1";
     public static String MENU_SUB_MENU = "2";
     public static String MENU_SUB_OF_SUB_MENU = "3";
-
-
 }

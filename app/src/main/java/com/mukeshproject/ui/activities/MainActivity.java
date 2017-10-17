@@ -15,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.mukeshproject.R;
 import com.mukeshproject.ui.fragments.HomeFragment;
 import com.mukeshproject.ui.fragments.MenuFragment;
@@ -35,7 +34,6 @@ public class MainActivity extends SlidingActivity {
 
     protected MenuFragment menuFragment;
     public Activity mActivity;
-
 
     private SharedPreferences prefManager = null;
     private MyProgressDialog dialog;
@@ -120,9 +118,15 @@ public class MainActivity extends SlidingActivity {
             case android.R.id.home:
                 toggle();
                 break;
+
             case R.id.action_menu_sync:
                 Toast.makeText(this, "Search", Toast.LENGTH_LONG).show();
                 break;
+
+            case R.id.action_menu_wishlist:
+                Utils.hideKeyboard(this);
+                break;
+
             case R.id.action_menu_checkin_checkout:
                 Utils.hideKeyboard(this);
                 break;
@@ -168,6 +172,7 @@ public class MainActivity extends SlidingActivity {
     }
 
     public void clearBackStack() {
+
         getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
@@ -188,12 +193,10 @@ public class MainActivity extends SlidingActivity {
                     this.doubleBackToExitPressedOnce = true;
                     Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {
-
                 getSupportFragmentManager().popBackStack();
             }
         } else {

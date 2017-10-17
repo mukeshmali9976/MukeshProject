@@ -17,31 +17,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <Spinner
                 android:id="@+id/spOperatorName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8" />
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/etMobileNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_10"
                 android:hint="@string/hint_mobile_number"
                 android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/etAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_10"
                 android:hint="@string/hint_amount"
                 android:inputType="number" />
 
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
     <Button
@@ -51,4 +59,5 @@
         android:layout_alignParentBottom="true"
         android:text="@string/lbl_recharge_now"
         android:textAllCaps="false" />
+
 </RelativeLayout>

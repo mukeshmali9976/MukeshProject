@@ -18,14 +18,12 @@ public class RequestBuilder extends PARAMS {
     public static final String METHOD_SETTING = "/api";
     public static final String METHOD_PRODUCT_LIST = "/api/productlist";
 
-
     public static HashMap<String, String> blankRequest() {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
-
     public static HashMap<String, String> performLogin(String email, String password, String device_token) {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();

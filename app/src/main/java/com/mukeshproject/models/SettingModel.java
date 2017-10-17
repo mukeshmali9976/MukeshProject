@@ -13,14 +13,6 @@ public class SettingModel {
     private ArrayList<SlidingImageModel> slider = new ArrayList<>();
     private ArrayList<ProductitemListModel>productlist = new ArrayList<>();
 
-    public ArrayList<ProductitemListModel> getProductlist() {
-        return productlist;
-    }
-
-    public void setProductlist(ArrayList<ProductitemListModel> productlist) {
-        this.productlist = productlist;
-    }
-
     public ArrayList<Userdetails> getUserdetails() {
         return userdetails;
     }
@@ -44,4 +36,13 @@ public class SettingModel {
     public void setSlider(ArrayList<SlidingImageModel> slider) {
         this.slider = slider;
     }
+
+    public ArrayList<ProductitemListModel> getProductlist() {
+        return productlist;
+    }
+
+    public void setProductlist(ArrayList<ProductitemListModel> productlist) {
+        this.productlist = productlist;
+    }
+
 }

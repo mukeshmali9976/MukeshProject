@@ -6,21 +6,16 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.AsyncTask;
 import android.util.Log;
-
-
 import com.mukeshproject.R;
 import com.mukeshproject.request.PARAMS;
 import com.mukeshproject.ui.views.MyProgressDialog;
 import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
-
 import org.json.JSONObject;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -88,8 +83,6 @@ public class NetworkClient extends AsyncTask<Void, Void, String> {
             e.printStackTrace();
         }
     }
-
-
     public NetworkClient(Context context, int requestId, RequestListener listener,
                          String url, RequestMethod reqMethod,
                          boolean isProgressVisible) {

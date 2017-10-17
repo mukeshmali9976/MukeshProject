@@ -44,9 +44,11 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
     public void onStop() {
         networkManager.removeListener(this);
         super.onStop();
+
     }
 
     private void getSettingData() {
+
         networkManager.isProgressBarVisible(false);
         reqIDSetting = networkManager.addRequest(RequestBuilder.blankRequest(), this, RequestMethod.POST, RequestBuilder.METHOD_SETTING);
     }
@@ -54,6 +56,7 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
     @Override
     public void onSuccess(int id, String response) {
         try {
+
             if (!Utils.isEmptyString(response)) {
                 if (reqIDSetting == id) {
                     SettingResponse settingResponse = new Gson().fromJson(response, SettingResponse.class);

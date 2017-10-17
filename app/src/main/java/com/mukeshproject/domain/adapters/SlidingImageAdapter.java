@@ -23,13 +23,11 @@ import java.util.ArrayList;
 
 public class SlidingImageAdapter extends PagerAdapter  {
 
-
     private ArrayList<SlidingImageModel> imageModelArrayList;
     private LayoutInflater inflater;
     private Context context;
     private ImageLoader mImageLoader;
     private DisplayImageOptions options;
-
 
     public SlidingImageAdapter(Context context, ArrayList<SlidingImageModel> imageModelArrayList) {
         this.context = context;
@@ -57,7 +55,6 @@ public class SlidingImageAdapter extends PagerAdapter  {
     public int getCount() {
         return imageModelArrayList.size();
     }
-
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
         View imageLayout = inflater.inflate(R.layout.layout_sliding_images, view, false);

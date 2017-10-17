@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.mukeshproject.R;
@@ -86,16 +87,14 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
     private void performLogin() {
 
         networkManager.isProgressBarVisible(true);
-        //reqIdLogin = networkManager.addRequest(RequestBuilder.performLogin(etEmail.getText().toString().trim(),etPassword.getText().toString().trim()),LoginActivity.this, RequestMethod.POST,RequestBuilder.METHOD_USER_LOGIN);
+//        reqIdLogin = networkManager.addRequest(RequestBuilder.performLogin(etEmail.getText().toString().trim(),etPassword.getText().toString().trim()),LoginActivity.this, RequestMethod.POST,RequestBuilder.METHOD_USER_LOGIN);
     }
-
     @Override
     public void onSuccess(int id, String response) {
 
 
 
     }
-
     @Override
     public void onError(int id, String message) {
 

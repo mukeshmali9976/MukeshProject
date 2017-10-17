@@ -13,7 +13,6 @@ import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.network.RequestMethod;
 import com.mukeshproject.request.RequestBuilder;
 import com.mukeshproject.utils.CryptoManager;
-
 import java.util.ArrayList;
 
 public class ProductItemList extends BaseAppCompatActivity implements RequestListener {
@@ -69,11 +68,11 @@ public class ProductItemList extends BaseAppCompatActivity implements RequestLis
     @Override
     public void onSuccess(int id, String response) {
 
-
     }
 
     @Override
     public void onError(int id, String message) {
 
+       displayError(message);
     }
 }

@@ -29,8 +29,6 @@ import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 import com.viewpagerindicator.CirclePageIndicator;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -52,7 +50,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private static int currentPage = 0;
     private static int NUM_PAGES = 5;
     private ArrayList<SlidingImageModel> imageList;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -14,17 +14,12 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
-
-
 import com.mukeshproject.R;
 import com.mukeshproject.ui.views.MyProgressDialog;
 import com.mukeshproject.utils.TypefaceUtils;
-
 import org.json.JSONException;
-
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 
@@ -88,7 +83,7 @@ public class BaseFragment extends Fragment {
 
             if (message.contains(SocketTimeoutException.class.getName()) || message.contains(UnknownHostException.class.getName()) || message.contains(NetworkErrorException.class.getName()) || message.contains(SSLException.class.getName())
                     || message.contains(SSLPeerUnverifiedException.class.getName()) || message.contains(JSONException.class.getName()) || message.contains(org.apache.http.conn.ConnectTimeoutException.class.getName())) {
-                message = getString(R.string.lbl_no_internet);
+                message =  getString(R.string.lbl_no_internet);
             }
 
             if (alertDialog != null && alertDialog.isShowing()) {
@@ -124,7 +119,7 @@ public class BaseFragment extends Fragment {
             if (actionBar != null) {
                 actionBar.setDisplayHomeAsUpEnabled(true);
                 actionBar.setHomeButtonEnabled(true);
-                actionBar.setDisplayShowTitleEnabled(false);
+                actionBar.setDisplayShowTitleEnabled(true);
                 actionBar.setDisplayShowCustomEnabled(true);
                 actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer_menu);
                 mActionBarTitle = new TextView(getActivity());

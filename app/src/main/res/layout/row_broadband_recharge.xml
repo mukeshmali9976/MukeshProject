@@ -23,36 +23,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_8" />
 
-            <EditText
-                android:id="@+id/etSTDNumber"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_std_number"
-                android:inputType="phone" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/etNumber"
+                <EditText
+                    android:id="@+id/etSTDNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_std_number"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_number_wihout_std"
-                android:inputType="phone" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/etAmount"
+                <EditText
+                    android:id="@+id/etNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_number_wihout_std"
+                    android:inputType="phone" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
-                android:inputType="number"
-                android:hint="@string/hint_account_number" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/etAccountNumber"
+                <EditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:hint="@string/hint_account_number"
+                    android:inputType="number" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_amount"
-                android:inputType="phone" />
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/etAccountNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_amount"
+                    android:inputType="phone" />
 
+            </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
     </ScrollView>

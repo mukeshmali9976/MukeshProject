@@ -85,5 +85,66 @@
 
     <string name="lbl_base_catagary">Base Catagary</string>
     <string name="hint_base_catagary">private</string>
-    
+
+    <string name="hint_lable">Select Catagry</string>
+    <string name="class_prompt">Choose a Class</string>
+
+    <string-array name="select_operator">
+        <item>Select Operator</item>
+        <item>Airtel</item>
+        <item>Vodafone</item>
+        <item>BSNL Topup</item>
+        <item>BSNL STV</item>
+        <item>Jio</item>
+        <item>Reliance GSM</item>
+        <item>Aircel</item>
+        <item>Idea</item>
+        <item>Tata Indicom</item>
+        <item>Loop Mobile</item>
+        <item>Tata Docomo</item>
+        <item>Tata Docomo Special</item>
+        <item>Virgin CDMA</item>
+        <item>Virgin GSM</item>
+        <item>MTS</item>
+        <item>Telenor</item>
+        <item>Telenor Special</item>
+        <item>Videocon</item>
+        <item>Videocon Special</item>
+        <item>MTNL Topup</item>
+        <item>MTNL STV</item>
+        <item>T24</item>
+        <item>T24 Special</item>
+        <item>Empire Calls</item>
+        <item>Empire Calls ACT</item>
+    </string-array>
+
+    <string-array name="select_circle">
+
+        <item>Select Circle</item>
+        <item>Andhra Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar Jharkhand</item>
+        <item>Chennai</item>
+        <item>Delhi</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jammu  Kashmir</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Kolkata</item>
+        <item>Maharashtra</item>
+        <item>Madhya Pradesh  Chhattisgarh</item>
+        <item>Mumbai</item>
+        <item>North East</item>
+        <item>Orissa</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Tamil Nadu</item>
+        <item>Uttar Pradesh – East</item>
+        <item>West Bengal</item>
+        <item>Uttar Pradesh – West</item>
+
+    </string-array>
+
 </resources>

@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -25,6 +26,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:checked="true"
                     android:id="@+id/radio_pirates"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -39,39 +41,71 @@
                     android:text="@string/lbl_post_paid" />
             </RadioGroup>
 
-            <EditText
-                android:id="@+id/etMobileNumber"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_mobile_number"
-                android:inputType="phone" />
+                android:layout_marginTop="@dimen/margin_10">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etMobileNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:hint="@string/hint_mobile_number"
+                        android:inputType="phone" />
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/imContactShow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:background="@color/colorWhite"
+                    android:src="@drawable/ic_contacts"
+                    android:text="Button" />
+            </RelativeLayout>
 
             <Spinner
                 android:id="@+id/spOperatorName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8" />
+                android:layout_marginTop="@dimen/margin_8"
+                android:entries="@array/select_operator"
+                android:prompt="@string/class_prompt" />
 
             <Spinner
                 android:id="@+id/spCircle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8" />
+                android:layout_marginTop="@dimen/margin_10"
+                android:entries="@array/select_circle" />
 
-            <EditText
-                android:id="@+id/etAmount"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
-                android:hint="@string/hint_amount"
-                android:inputType="number" />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/etAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:hint="@string/hint_amount"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+
 
         </LinearLayout>
 
     </ScrollView>
 
     <Button
-        android:layout_marginBottom="@dimen/margin_20"
         android:id="@+id/btnRechargeNow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

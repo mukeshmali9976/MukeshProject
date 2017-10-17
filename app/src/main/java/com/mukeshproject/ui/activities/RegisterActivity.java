@@ -1,12 +1,9 @@
 package com.mukeshproject.ui.activities;
 
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
@@ -63,6 +60,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
 
+
     }
 
     @Override
@@ -72,6 +70,8 @@ public class RegisterActivity extends BaseAppCompatActivity implements View.OnCl
 
     @Override
     public void onError(int id, String message) {
+
+        displayError(message);
 
     }
 }

@@ -1,7 +1,6 @@
 package com.mukeshproject.ui.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.mukeshproject.R;
 import com.mukeshproject.domain.adapters.MenuAdapter;
@@ -20,7 +18,6 @@ import com.mukeshproject.models.SettingResponse;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.ui.activities.MainActivity;
-import com.mukeshproject.ui.activities.ProductItemList;
 import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.CryptoManager;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -138,9 +135,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
                         }
                     }
                 } else {
+
                     ((MainActivity) getActivity()).getSlidingMenu().toggle(true);
                     ((MainActivity) getActivity()).clearBackStack();
-                   ((MainActivity) getActivity()).addFragment(new HomeFragment());
+                    ((MainActivity) getActivity()).addFragment(new HomeFragment());
                     //startActivity(new Intent(getContext(), ProductItemList.class));
                 }
                 break;

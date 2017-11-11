@@ -10,6 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.mukeshproject.R;
 import com.mukeshproject.models.MenuResponse;
 import com.mukeshproject.utils.Constants;
@@ -96,7 +98,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
                 @Override
                 public void onClick(View view) {
                     mListner.onItemClick(view, getAdapterPosition(), menu);
+
                 }
+
             });
 
         }
@@ -104,6 +108,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
 
     public interface OnInnerViewsClickListener {
         void onItemClick(View view, int position, String menu);
+
 
     }
 }

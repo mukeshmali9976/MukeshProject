@@ -71,9 +71,9 @@ public class ProductListAdapter extends BaseAdapter {
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
+
             viewHolder = (ViewHolder) convertView.getTag();
             viewHolder.tvProductName.setText(productArryList.get(position).getProduct_name());
-
         }
         return convertView;
     }
@@ -91,5 +91,4 @@ public class ProductListAdapter extends BaseAdapter {
             rbProductRating = (RatingBar) view.findViewById(R.id.rbProductRating);
         }
     }
-
 }

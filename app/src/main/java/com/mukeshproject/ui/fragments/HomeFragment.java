@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -39,7 +40,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     public static final String TAG = HomeFragment.class.getSimpleName();
     private View mRootView;
-
+    Constants constants;
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
     private Activity mActivity;
@@ -72,29 +73,31 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private void initView() {
 
         settingResponse = new Gson().fromJson(prefManager.getString(Constants.PREF_SETTING_DATA, ""), SettingResponse.class);
-        List<HomeCategoryModel> homeCategoryList = new ArrayList<>();
+        List<HomeCategoryModel> homeCategoryList1 = new ArrayList<>();
         HomeCategoryModel homeCategoryModel;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 8; i++) {
             homeCategoryModel = new HomeCategoryModel();
-            homeCategoryList.add(homeCategoryModel);
+            homeCategoryList1.add(homeCategoryModel);
 
         }
         rvHomeCategoryList = (RecyclerView) mRootView.findViewById(R.id.rvHomeCategoryList);
         rvRecharge = (RecyclerView) mRootView.findViewById(R.id.rvRecharge);
 
-        rvHomeCategoryList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rvHomeCategoryList.setItemAnimator(new DefaultItemAnimator());
-        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
+//        rvHomeCategoryList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+//        rvHomeCategoryList.setItemAnimator(new DefaultItemAnimator());
+//        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
         rvRecharge.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rvRecharge.setItemAnimator(new DefaultItemAnimator());
-        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
-
-        imageList = new ArrayList<>();
+        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList1, this));
+//        HomeCategoryAdapter homeCategoryAdapter = new HomeCategoryAdapter(getActivity(),homeCategoryList);
+//        rvRecharge.setAdapter(homeCategoryAdapter);
+        //imageList = new ArrayList<>();
 
         viewPager();
     }
+
 
     @Override
     public void onStart() {
@@ -118,7 +121,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         }
     }
 
-
     @Override
     public void onSuccess(int id, String response) {
         try {
@@ -139,7 +141,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onClick(View view) {
 
     }
-
     @Override
     public void onItemClick(View view, int position) {
         switch (view.getId()) {
@@ -187,5 +188,4 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         });
 
     }
-
 }

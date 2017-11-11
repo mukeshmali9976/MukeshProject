@@ -2,6 +2,7 @@ package com.mukeshproject.domain.services;
 
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -40,5 +41,6 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         //You can implement this method to store the token on your server
         //Not required for current project
         prefManager.edit().putString(Constants.REGISTRATION_TOKEN, token).apply();
+       // Toast.makeText(this,prefManager.toString(),Toast.LENGTH_LONG).show();
     }
 }

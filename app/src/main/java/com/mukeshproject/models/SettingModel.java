@@ -12,6 +12,15 @@ public class SettingModel {
     private ArrayList<MenuResponse> menudetails = new ArrayList<>();
     private ArrayList<SlidingImageModel> slider = new ArrayList<>();
     private ArrayList<ProductitemListModel>productlist = new ArrayList<>();
+    private ArrayList<HomeCategoryModel>recharge = new ArrayList<>();
+
+    public ArrayList<HomeCategoryModel> getRecharge() {
+        return recharge;
+    }
+
+    public void setRecharge(ArrayList<HomeCategoryModel> recharge) {
+        this.recharge = recharge;
+    }
 
     public ArrayList<Userdetails> getUserdetails() {
         return userdetails;
@@ -44,5 +53,6 @@ public class SettingModel {
     public void setProductlist(ArrayList<ProductitemListModel> productlist) {
         this.productlist = productlist;
     }
+
 
 }

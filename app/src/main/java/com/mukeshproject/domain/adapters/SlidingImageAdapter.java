@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class SlidingImageAdapter extends PagerAdapter  {
 
+
     private ArrayList<SlidingImageModel> imageModelArrayList;
     private LayoutInflater inflater;
     private Context context;
@@ -81,5 +82,6 @@ public class SlidingImageAdapter extends PagerAdapter  {
     public Parcelable saveState() {
         return null;
     }
+
 }
 

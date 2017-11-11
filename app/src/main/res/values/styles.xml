@@ -168,7 +168,7 @@
         <item name="android:spinnerMode">dropdown</item>
         <item name="fontPath">@string/regular</item>
         <item name="android:minHeight">@dimen/margin_24</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <!--Spinner Customized-->
@@ -180,7 +180,7 @@
         <item name="android:textSize">@dimen/font_14</item>
         <item name="fontPath">@string/regular</item>
         <item name="android:background">@color/colorWhite</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <!-- sublime picker style -->

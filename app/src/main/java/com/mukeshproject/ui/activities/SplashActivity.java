@@ -56,7 +56,6 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
     @Override
     public void onSuccess(int id, String response) {
         try {
-
             if (!Utils.isEmptyString(response)) {
                 if (reqIDSetting == id) {
                     SettingResponse settingResponse = new Gson().fromJson(response, SettingResponse.class);

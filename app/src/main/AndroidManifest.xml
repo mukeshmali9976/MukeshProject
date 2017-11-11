@@ -25,19 +25,6 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|stateHidden|adjustPan">
 
-        </activity>
-        <activity
-            android:name=".ui.activities.ProductItemList"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.activities.OnlineRechargeActivity">
-
-        </activity>
-        <activity android:name=".ui.activities.ForgotPasswordActivity">
-
-        </activity>
-        <activity
-            android:name=".ui.activities.LoginActivity"
-            android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,9 +32,31 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ui.activities.RegisterActivity" >
+
+        <activity
+            android:name=".ui.activities.ProductItemList"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".ui.activities.OnlineRechargeActivity">
 
         </activity>
+
+        <activity android:name=".ui.activities.ForgotPasswordActivity">
+
+        </activity>
+
+        <activity
+            android:name=".ui.activities.LoginActivity"
+            android:label="Login">
+
+        </activity>
+
+        <activity android:name=".ui.activities.RegisterActivity">
+
+        </activity>
+
+
     </application>
+
 
 </manifest>

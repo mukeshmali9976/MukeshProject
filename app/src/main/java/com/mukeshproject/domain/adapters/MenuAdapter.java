@@ -46,27 +46,26 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        MenuResponse menuResponse = menuResponses.get(position);
-        if (menu.equalsIgnoreCase(Constants.MENU_MAIN)) {
-            if (menuResponse.getSubmenu_details().size() > 0) {
-                holder.ivMore.setVisibility(View.VISIBLE);
-            } else {
+            MenuResponse menuResponse = menuResponses.get(position);
+            if (menu.equalsIgnoreCase(Constants.MENU_MAIN)) {
+                if (menuResponse.getSubmenu_details().size() > 0) {
+                    holder.ivMore.setVisibility(View.VISIBLE);
+                } else {
+                    holder.ivMore.setVisibility(View.GONE);
+                }
+                holder.tvMenu.setText(menuResponse.getMenu_name());
+
+            } else if (menu.equalsIgnoreCase(Constants.MENU_SUB_MENU)) {
+                if (menuResponse.getSubsubmenudetails().size() > 0) {
+                    holder.ivMore.setVisibility(View.VISIBLE);
+                } else {
+                    holder.ivMore.setVisibility(View.GONE);
+                }
+                holder.tvMenu.setText(menuResponse.getSubmenu());
+
+            } else if (menu.equalsIgnoreCase(Constants.MENU_SUB_OF_SUB_MENU)) {
                 holder.ivMore.setVisibility(View.GONE);
-            }
-            holder.tvMenu.setText(menuResponse.getMenu_name());
-
-
-        } else if (menu.equalsIgnoreCase(Constants.MENU_SUB_MENU)) {
-            if (menuResponse.getSubsubmenudetails().size() > 0) {
-                holder.ivMore.setVisibility(View.VISIBLE);
-            } else {
-                holder.ivMore.setVisibility(View.GONE);
-            }
-            holder.tvMenu.setText(menuResponse.getSubmenu());
-
-        } else if (menu.equalsIgnoreCase(Constants.MENU_SUB_OF_SUB_MENU)) {
-            holder.ivMore.setVisibility(View.GONE);
-            holder.tvMenu.setText(menuResponse.getSubsubmenu());
+                holder.tvMenu.setText(menuResponse.getSubsubmenu());
 
         }
         setScaleAnimation(holder.itemView);
@@ -108,7 +107,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MyViewHolder> 
 
     public interface OnInnerViewsClickListener {
         void onItemClick(View view, int position, String menu);
-
 
     }
 }

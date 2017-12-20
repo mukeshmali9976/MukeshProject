@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -16,7 +17,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/margin_10">
 
             <RadioGroup
                 android:id="@+id/rgRechargeType"
@@ -44,19 +46,21 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10">
+                android:layout_marginTop="@dimen/margin_8">
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
+                        android:drawablePadding="@dimen/margin_5"
                         android:id="@+id/etMobileNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_marginTop="@dimen/margin_8"
                         android:hint="@string/hint_mobile_number"
-                        android:inputType="phone" />
+                        android:inputType="phone"
+                        android:maxLength="13" />
                 </android.support.design.widget.TextInputLayout>
 
                 <ImageButton
@@ -75,16 +79,18 @@
                 android:id="@+id/spOperatorName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_8"
-                android:entries="@array/select_operator"
-                android:prompt="@string/class_prompt" />
+                android:entries="@array/select_operator" />
 
             <Spinner
-
                 android:id="@+id/spCircle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_8"
                 android:entries="@array/select_circle" />
 
             <android.support.design.widget.TextInputLayout
@@ -100,16 +106,20 @@
                     android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
+
+            <Button
+                android:id="@+id/btnRechargeNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/margin_40"
+                android:layout_marginRight="@dimen/margin_40"
+                android:layout_marginTop="@dimen/margin_10"
+                android:padding="@dimen/margin_20"
+                android:text="@string/lbl_recharge_now"
+                android:textAllCaps="false" />
         </LinearLayout>
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/btnRechargeNow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/lbl_recharge_now"
-        android:textAllCaps="false" />
 
 </RelativeLayout>

@@ -145,7 +145,7 @@ public class Userdetails {
     }
     public void setWalletbalance(){
 
-        this.walletbalance= walletbalance;
+        this.walletbalance = walletbalance;
     }
     public String getOtpcount(){
 
@@ -237,7 +237,7 @@ public class Userdetails {
     }
     public String getEmail(){
 
-        return email;
+        return email = email;
     }
     public void setEmail(){
 

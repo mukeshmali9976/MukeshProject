@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -28,25 +29,20 @@ import com.mukeshproject.utils.Utils;
 public class MainActivity extends SlidingActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
-
     private static int REQUEST_CHECK_SETTINGS = 101;
     private TextView mActionBarTitle;
-
     protected MenuFragment menuFragment;
     public Activity mActivity;
-
     private SharedPreferences prefManager = null;
     private MyProgressDialog dialog;
-
     private MenuItem menuItem;
-
     Boolean doubleBackToExitPressedOnce = false;
-
-
+    private BottomNavigationView bottomNavigation;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
+        bottomNavigation = (BottomNavigationView)findViewById(R.id.bottom_navigation);
 
         mActivity = this;
         prefManager = CryptoManager.getInstance(mActivity).getPrefs();
@@ -78,13 +74,11 @@ public class MainActivity extends SlidingActivity {
             }
         });
     }
-
     public void restartActivity() {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
@@ -102,7 +96,6 @@ public class MainActivity extends SlidingActivity {
                         Log.w("myApp", "onQueryTextSubmit");
                         return false;
                     }
-
                     @Override
                     public boolean onQueryTextChange(String newText) {
                         Log.w("myApp", "onQueryTextChange");
@@ -123,12 +116,12 @@ public class MainActivity extends SlidingActivity {
                 Toast.makeText(this, "Search", Toast.LENGTH_LONG).show();
                 break;
 
-            case R.id.action_menu_wishlist:
-                Utils.hideKeyboard(this);
-                break;
 
-            case R.id.action_menu_checkin_checkout:
+
+            case R.id.profile:
                 Utils.hideKeyboard(this);
+                Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

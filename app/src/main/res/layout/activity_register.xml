@@ -7,13 +7,20 @@
     android:orientation="vertical"
     tools:context="com.mukeshproject.ui.activities.RegisterActivity">
 
-    <include layout="@layout/layout_toolbar" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/margin_15">
+        android:padding="@dimen/margin_20">
 
         <EditText
             android:id="@+id/etFirstName"
@@ -22,7 +29,7 @@
             android:background="@drawable/rounded_border_edittext"
             android:hint="@string/hint_first_name"
             android:imeOptions="actionNext"
-            android:padding="@dimen/margin_10" />
+            android:padding="@dimen/margin_12" />
 
         <TextView
             android:id="@+id/tvErorrFirstName"
@@ -36,12 +43,12 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_12"
             android:background="@drawable/rounded_border_edittext"
-            android:hint="@string/hint_email"
+            android:hint="@string/hint_email_register"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:padding="@dimen/margin_10" />
+            android:padding="@dimen/margin_12" />
 
         <TextView
             android:id="@id/tvErorrEmail"
@@ -52,6 +59,7 @@
             android:visibility="gone" />
 
         <EditText
+            android:maxLength="10"
             android:id="@+id/etContactNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +68,7 @@
             android:hint="@string/hint_contact_number"
             android:imeOptions="actionNext"
             android:inputType="number"
-            android:padding="@dimen/margin_10" />
+            android:padding="@dimen/margin_12" />
 
         <TextView
             android:id="@+id/tvErorrContactNumber"
@@ -79,7 +87,7 @@
             android:hint="@string/hint_password"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
-            android:padding="@dimen/margin_10" />
+            android:padding="@dimen/margin_12" />
 
         <TextView
             android:id="@+id/tvErorrPassword"
@@ -98,14 +106,21 @@
             android:hint="@string/hint_confirm_password"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:padding="@dimen/margin_10" />
+            android:padding="@dimen/margin_12" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15"
+            android:layout_marginLeft="@dimen/margin_30"
+            android:layout_marginRight="@dimen/margin_30"
+            android:layout_marginTop="@dimen/margin_20"
+            android:padding="@dimen/font_15"
             android:text="@string/lbl_register"
             android:textAllCaps="false" />
     </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>
+

@@ -112,7 +112,7 @@
         <item name="android:background">@drawable/theme_button</item>
         <item name="android:textColor">@drawable/theme_button_text_selector</item>
         <item name="android:minHeight">@dimen/margin_36</item>
-        <item name="textAllCaps">true</item>
+        <item name="textAllCaps">false</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingLeft">@dimen/margin_60</item>
         <item name="android:paddingRight">@dimen/margin_60</item>
@@ -121,11 +121,12 @@
         <item name="fontPath">@string/semi_bold</item>
     </style>
 
+
     <!--EditText Style-->
     <style name="styleEditText" parent="Base.Widget.AppCompat.EditText">
         <item name="android:paddingTop">@dimen/margin_10</item>
         <item name="android:color">@color/colorBlack</item>
-        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textSize">@dimen/font_16</item>
         <item name="android:textColorHint">@color/colorHint</item>
         <item name="fontPath">@string/regular</item>
         <item name="android:singleLine">true</item>
@@ -137,7 +138,7 @@
     <style name="styleEditTextNormal" parent="Base.Widget.AppCompat.EditText">
         <item name="android:paddingTop">@dimen/margin_10</item>
         <item name="android:color">@color/colorPrimaryDark</item>
-        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textSize">@dimen/font_16</item>
         <item name="android:textColorHint">@color/colorHint</item>
         <item name="android:singleLine">true</item>
         <item name="fontPath">@string/regular</item>
@@ -148,8 +149,8 @@
     <!--White EditText Style-->
     <style name="styleEditTextWhite" parent="Base.Widget.AppCompat.EditText">
         <item name="android:paddingTop">@dimen/margin_10</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
-        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/font_16</item>
         <item name="android:textColorHint">@color/colorHint</item>
         <item name="android:singleLine">false</item>
         <item name="fontPath">@string/regular</item>
@@ -161,9 +162,9 @@
     <!--Spinner Customized-->
     <style name="styleSpinner" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/spinner_theme</item>
-        <item name="android:popupBackground">@color/colorAccent</item>
+        <item name="android:popupBackground">@color/colorPrimary</item>
         <item name="android:dropDownVerticalOffset">@dimen/margin_0</item>
-        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textSize">@dimen/font_16</item>
         <item name="android:paddingRight">@dimen/margin_25</item>
         <item name="android:spinnerMode">dropdown</item>
         <item name="fontPath">@string/regular</item>
@@ -175,9 +176,9 @@
     <style name="styleSpinnerDropDownStyle" parent="Widget.AppCompat.DropDownItem.Spinner">
         <item name="android:dropDownWidth">wrap_content</item>
         <item name="android:dropDownHeight">wrap_content</item>
-        <item name="android:rowHeight">@dimen/margin_2</item>
+        <item name="android:rowHeight">@dimen/margin_0</item>
         <item name="android:scrollbars">vertical</item>
-        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textSize">@dimen/font_16</item>
         <item name="fontPath">@string/regular</item>
         <item name="android:background">@color/colorWhite</item>
         <item name="android:textColor">@color/colorBlack</item>

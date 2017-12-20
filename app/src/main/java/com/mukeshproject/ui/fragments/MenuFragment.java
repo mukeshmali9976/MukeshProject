@@ -139,13 +139,12 @@ public class MenuFragment extends Fragment implements View.OnClickListener, Requ
                     ((MainActivity) getActivity()).getSlidingMenu().toggle(true);
                     ((MainActivity) getActivity()).clearBackStack();
                     ((MainActivity) getActivity()).addFragment(new HomeFragment());
-                    //startActivity(new Intent(getContext(), ProductItemList.class));
+
                 }
                 break;
         }
 
     }
-
     private void setAdapterData(String menu, ArrayList<MenuResponse> menuResponsesList, boolean isBackVisible) {
         if (isBackVisible) {
             tvBackButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_blue, 0, 0, 0);

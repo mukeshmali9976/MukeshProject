@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,13 +41,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     public static final String TAG = HomeFragment.class.getSimpleName();
     private View mRootView;
-    Constants constants;
     private SharedPreferences prefManager = null;
     private NetworkManager networkManager = null;
     private Activity mActivity;
     private SettingResponse settingResponse = null;
-    private RecyclerView rvHomeCategoryList, rvRecharge;
-
+    private RecyclerView rvHomeCategoryList, rvRecharge,rvPayment;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 5;
@@ -67,37 +66,41 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setHasOptionsMenu(true);
     }
 
     private void initView() {
 
         settingResponse = new Gson().fromJson(prefManager.getString(Constants.PREF_SETTING_DATA, ""), SettingResponse.class);
-        List<HomeCategoryModel> homeCategoryList1 = new ArrayList<>();
+        List<HomeCategoryModel> homeCategoryList = new ArrayList<>();
         HomeCategoryModel homeCategoryModel;
 
         for (int i = 0; i < 8; i++) {
             homeCategoryModel = new HomeCategoryModel();
-            homeCategoryList1.add(homeCategoryModel);
+            homeCategoryList.add(homeCategoryModel);
 
         }
         rvHomeCategoryList = (RecyclerView) mRootView.findViewById(R.id.rvHomeCategoryList);
         rvRecharge = (RecyclerView) mRootView.findViewById(R.id.rvRecharge);
+        rvPayment = (RecyclerView)mRootView.findViewById(R.id.rvPayment);
+
+        rvPayment.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        rvPayment.setItemAnimator(new DefaultItemAnimator());
+        rvPayment.setAdapter(new HomeCategoryAdapter(getActivity(),homeCategoryList,this));
+
+        rvRecharge.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        rvRecharge.setItemAnimator(new DefaultItemAnimator());
+        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
+
 
 //        rvHomeCategoryList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 //        rvHomeCategoryList.setItemAnimator(new DefaultItemAnimator());
 //        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
-        rvRecharge.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        rvRecharge.setItemAnimator(new DefaultItemAnimator());
-        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList1, this));
-//        HomeCategoryAdapter homeCategoryAdapter = new HomeCategoryAdapter(getActivity(),homeCategoryList);
-//        rvRecharge.setAdapter(homeCategoryAdapter);
-        //imageList = new ArrayList<>();
-
         viewPager();
     }
-
 
     @Override
     public void onStart() {
@@ -126,6 +129,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         try {
             if (!TextUtils.isEmpty(response)) {
             } else {
+
                 displayError(getString(R.string.no_network_connection));
             }
         } catch (Exception e) {
@@ -185,6 +189,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             public void onPageScrollStateChanged(int pos) {
 
             }
+
         });
 
     }

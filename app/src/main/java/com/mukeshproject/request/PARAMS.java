@@ -19,4 +19,5 @@ public class PARAMS {
     public static final String TAG_PASSWORD = "password";
     public static final String TAG_DEVICE_TYPE = "devicetype";
 
+
 }

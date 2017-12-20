@@ -28,7 +28,6 @@ import okhttp3.Response;
 public class NetworkClient extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = NetworkClient.class.getSimpleName();
-
     private RequestListener listener;
     private int requestId;
     private HashMap<String, String> reqParams;
@@ -43,6 +42,7 @@ public class NetworkClient extends AsyncTask<Void, Void, String> {
     private SharedPreferences prefManager = null;
     private PackageInfo pInfo;
     private boolean isError = false;
+    String easygetdatapost = "b6Ac4a1527B5de990569E11b9695268c";
 
     public NetworkClient(Context context, int requestId, RequestListener listener,
                          String url, HashMap<String, String> reqParams, RequestMethod reqMethod,
@@ -169,6 +169,7 @@ public class NetworkClient extends AsyncTask<Void, Void, String> {
                     String mRequestParams = (!Utils.isEmptyString(reqParams.get(PARAMS.TAG_PARAMS)) ? reqParams.get(PARAMS.TAG_PARAMS) : "");
                     RequestBody body = new FormBody.Builder()
                             .add(PARAMS.TAG_PARAMS, mRequestParams)
+                            .add("easygetdatapost",easygetdatapost)
                             .build();
 
                     okhttp3.Request request = new okhttp3.Request.Builder()

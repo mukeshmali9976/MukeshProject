@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
@@ -66,6 +67,7 @@ public class RegisterActivity extends BaseAppCompatActivity implements View.OnCl
     @Override
     public void onSuccess(int id, String response) {
 
+        Toast.makeText(RegisterActivity.this,response,Toast.LENGTH_LONG).show();
     }
 
     @Override

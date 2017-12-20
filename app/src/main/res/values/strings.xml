@@ -63,12 +63,13 @@
 
     <!--Login-->
 
-    <string name="hint_email">Email</string>
+    <string name="hint_email">Email ID/Contact Number</string>
+    <string name="hint_email_register">Email ID</string>
     <string name="hint_password">Password</string>
     <string name="hint_first_name">First Name</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="hint_contact_number">Contact Number</string>
-    <string name="lbl_login">Login</string>
+    <string name="lbl_login">Login Securely</string>
     <string name="lbl_forgot_password">Forgot Password?</string>
     <string name="title_forgot_password">Forgot Password</string>
     <string name="title_register_user">Register</string>
@@ -88,6 +89,8 @@
 
     <string name="hint_lable">Select Catagry</string>
     <string name="class_prompt">Choose a Class</string>
+
+    <string name="text_general"><u>General</u></string>
 
     <string-array name="select_operator">
         <item>Select Operator</item>

@@ -66,7 +66,6 @@ public class SlidingImageAdapter extends PagerAdapter  {
 
         view.addView(imageLayout);
         return imageLayout;
-
     }
 
     @Override

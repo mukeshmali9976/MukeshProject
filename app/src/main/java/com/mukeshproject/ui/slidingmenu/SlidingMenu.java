@@ -354,7 +354,8 @@ public class SlidingMenu extends RelativeLayout {
      *
      * @param v The desired content to display.
      */
-    public void setMenu(View v) {
+    public void setMenu(View v)
+    {
         mViewBehind.setContent(v);
     }
 
@@ -363,7 +364,8 @@ public class SlidingMenu extends RelativeLayout {
      *
      * @return the main menu
      */
-    public View getMenu() {
+    public View getMenu()
+    {
         return mViewBehind.getContent();
     }
 
@@ -393,7 +395,8 @@ public class SlidingMenu extends RelativeLayout {
      *
      * @return the current menu
      */
-    public View getSecondaryMenu() {
+    public View getSecondaryMenu()
+    {
         return mViewBehind.getSecondaryContent();
     }
 
@@ -402,7 +405,8 @@ public class SlidingMenu extends RelativeLayout {
      *
      * @param b true to enable sliding, false to disable it.
      */
-    public void setSlidingEnabled(boolean b) {
+    public void setSlidingEnabled(boolean b)
+    {
         mViewAbove.setSlidingEnabled(b);
     }
 
@@ -411,7 +415,8 @@ public class SlidingMenu extends RelativeLayout {
      *
      * @return true, if is sliding enabled
      */
-    public boolean isSlidingEnabled() {
+    public boolean isSlidingEnabled()
+    {
         return mViewAbove.isSlidingEnabled();
     }
 

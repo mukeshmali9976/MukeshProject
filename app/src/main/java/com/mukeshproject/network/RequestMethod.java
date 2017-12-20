@@ -4,4 +4,6 @@ public enum RequestMethod {
 	GET,
 	POST,
 	MULTIPART
+
+
 }

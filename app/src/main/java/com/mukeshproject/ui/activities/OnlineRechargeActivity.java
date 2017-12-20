@@ -27,6 +27,7 @@ import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
 
+
 public class OnlineRechargeActivity extends BaseAppCompatActivity implements RequestListener {
 
     private static final String TAG = OnlineRechargeActivity.class.getSimpleName();
@@ -99,7 +100,6 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
                     }
 
                 });
-
 
             } else if (getIntent().getIntExtra(EXTRA_RECHARGE_TYPE, -1) == 1) {
                 view = LayoutInflater.from(this).inflate(R.layout.row_broadband_recharge, null);

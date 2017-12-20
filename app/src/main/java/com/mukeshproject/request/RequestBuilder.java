@@ -1,23 +1,21 @@
 package com.mukeshproject.request;
 
 
+
 import com.mukeshproject.utils.Constants;
 import com.mukeshproject.utils.Log;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
 import java.util.HashMap;
+
 
 public class RequestBuilder extends PARAMS {
     private static final String TAG = RequestBuilder.class.getSimpleName();
 
 
-    public static final String METHOD_SETTING = "/api";
-    public static final String METHOD_PRODUCT_LIST = "/api/productlist";
-    public static final String METHOD_RECHARGE = "";
+    public static final String METHOD_SETTING = "/databaseapiforintigration/index";
+    public static final String METHOD_PRODUCT_LIST = "/databaseapiforintigration/productlist";
+    public static final String METHOD_RECHARGE = "/rechargeapi/index";
 
     public static HashMap<String, String> blankRequest() {
         JSONObject jObjReq = new JSONObject();
@@ -25,6 +23,7 @@ public class RequestBuilder extends PARAMS {
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
+
     public static HashMap<String, String> performLogin(String email, String password, String device_token) {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();
@@ -40,4 +39,5 @@ public class RequestBuilder extends PARAMS {
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
+
 }

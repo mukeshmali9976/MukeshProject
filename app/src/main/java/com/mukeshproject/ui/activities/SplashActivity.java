@@ -30,8 +30,6 @@ public class SplashActivity extends BaseAppCompatActivity implements RequestList
         networkManager = NetworkManager.getInstance();
         prefManager = CryptoManager.getInstance(SplashActivity.this).getPrefs();
         getSettingData();
-
-
     }
 
     @Override

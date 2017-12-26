@@ -2,16 +2,18 @@ package com.mukeshproject.domain.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.mukeshproject.R;
 import com.mukeshproject.models.HomeCategoryModel;
+import com.mukeshproject.ui.fragments.HomeFragment;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -29,6 +31,8 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         this.homeCategoryList = homeCategoryList;
         this.mListner = mListner;
     }
+
+
     @Override
     public long getItemId(int position) {
         return position;
@@ -43,11 +47,14 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         HomeCategoryModel rowObject = homeCategoryList.get(position);
+        HomeCategoryModel re = homeCategoryList.get(position);
 
-//        holder.tvCategoryName.setText(rowObject.getName());
-//        Picasso.with(context).load(rowObject.getImageName()).into(holder.ivCategory);
+        Log.e("name","name:"+position);
+        holder.tvCategoryName.setText(rowObject.getName());
+        Picasso.with(context).load(rowObject.getImageName()).into(holder.ivCategory);
 
-
+        holder.tvCategoryName.setText(re.getTicketname());
+        Picasso.with(context).load(re.getTicketimagename()).into(holder.ivCategory);
     }
 
     @Override
@@ -68,7 +75,6 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                 @Override
                 public void onClick(View view) {
                     mListner.onItemClick(view, getAdapterPosition());
-
                 }
             });
         }

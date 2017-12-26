@@ -6,21 +6,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.mukeshproject.R;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnProfileLogin,btnProfileRegister;
+    Button btnProfileLogin, btnProfileRegister;
     TextView tvInvite;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        btnProfileLogin = (Button)findViewById(R.id.btnProfileLogin);
-        btnProfileRegister = (Button)findViewById(R.id.btnProfileRegister);
-        tvInvite = (TextView)findViewById(R.id.tvinvite);
+        btnProfileLogin = (Button) findViewById(R.id.btnProfileLogin);
+        btnProfileRegister = (Button) findViewById(R.id.btnProfileRegister);
+        tvInvite = (TextView) findViewById(R.id.tvinvite);
 
         btnProfileLogin.setOnClickListener(this);
         btnProfileRegister.setOnClickListener(this);
@@ -40,15 +40,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
 
             case R.id.btnProfileLogin:
-                Intent intent = new Intent(ProfileActivity.this,LoginActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.btnProfileRegister:
-                Intent intent1 = new Intent(ProfileActivity.this,RegisterActivity.class);
+                Intent intent1 = new Intent(ProfileActivity.this, RegisterActivity.class);
                 startActivity(intent1);
                 break;
         }

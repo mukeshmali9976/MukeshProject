@@ -1,8 +1,11 @@
 package com.mukeshproject.ui.activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -14,6 +17,7 @@ import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.network.RequestMethod;
+import com.mukeshproject.request.PARAMS;
 import com.mukeshproject.request.RequestBuilder;
 import com.mukeshproject.utils.CryptoManager;
 
@@ -74,7 +78,9 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLogin:
-                performLogin();
+                validationLogin();
+
+
                 break;
 
             case R.id.btnRegister:
@@ -82,21 +88,47 @@ public class LoginActivity extends BaseAppCompatActivity implements View.OnClick
                 break;
 
             case R.id.tvForgotPassword:
-                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
-                break;
+                    showforgotpassworddialog();
+
+//                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
+//                break;
         }
 
     }
 
+    private void showforgotpassworddialog() {
+        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.activity_forgot_password, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setTitle("Forgot Password");
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
+    private void validationLogin() {
+
+        if (etEmail.getText().toString().isEmpty()){
+            tvErorrEmail.setVisibility(View.VISIBLE);
+        }
+        else {
+            tvErorrEmail.setVisibility(View.GONE);
+        }
+        if (etPassword.getText().toString().isEmpty()){
+            tvErorrPassword.setVisibility(View.VISIBLE);
+        }
+        else {
+            tvErorrPassword.setVisibility(View.GONE);
+            performLogin();
+        }
+    }
     private void performLogin() {
 
         networkManager.isProgressBarVisible(true);
-        reqIdLogin = networkManager.addRequest(RequestBuilder.performLogin(etEmail.getText().toString().trim(),etPassword.getText().toString().trim(),null),LoginActivity.this, RequestMethod.POST,RequestBuilder.METHOD_SETTING);
+        reqIdLogin = networkManager.addRequest(RequestBuilder.performLogin(etEmail.getText().toString().trim(),etPassword.getText().toString().trim(),PARAMS.TAG_DEVICE_TOKEN),LoginActivity.this, RequestMethod.POST,RequestBuilder.METHOD_SETTING);
     }
     @Override
     public void onSuccess(int id, String response) {
-
-        //Toast.makeText(LoginActivity.this,response.toString(),Toast.LENGTH_LONG).show();
 
     }
     @Override

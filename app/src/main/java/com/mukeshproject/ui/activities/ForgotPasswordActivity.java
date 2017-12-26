@@ -36,8 +36,8 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements Vie
 
     private void initView() {
 
-        etEmail = (EditText)findViewById(R.id.etEmail);
-        findViewById(R.id.btnSubmit).setOnClickListener(this);
+        //etEmail = (EditText)findViewById(R.id.etEmail);
+        //findViewById(R.id.btnSubmit).setOnClickListener(this);
     }
 
     @Override

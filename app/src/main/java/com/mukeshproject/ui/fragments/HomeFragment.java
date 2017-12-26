@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,7 +43,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     private NetworkManager networkManager = null;
     private Activity mActivity;
     private SettingResponse settingResponse = null;
-    private RecyclerView rvHomeCategoryList, rvRecharge,rvPayment;
+    private RecyclerView rvTicketBook, rvRecharge,rvPayment;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 5;
@@ -54,7 +52,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_home, null);
-
         mActivity = getActivity();
         networkManager = NetworkManager.getInstance();
         prefManager = CryptoManager.getInstance(getActivity()).getPrefs();
@@ -66,8 +63,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setHasOptionsMenu(true);
     }
 
@@ -77,27 +72,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         List<HomeCategoryModel> homeCategoryList = new ArrayList<>();
         HomeCategoryModel homeCategoryModel;
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 10; i++) {
             homeCategoryModel = new HomeCategoryModel();
             homeCategoryList.add(homeCategoryModel);
-
         }
-        rvHomeCategoryList = (RecyclerView) mRootView.findViewById(R.id.rvHomeCategoryList);
-        rvRecharge = (RecyclerView) mRootView.findViewById(R.id.rvRecharge);
-        rvPayment = (RecyclerView)mRootView.findViewById(R.id.rvPayment);
 
-        rvPayment.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
-        rvPayment.setItemAnimator(new DefaultItemAnimator());
-        rvPayment.setAdapter(new HomeCategoryAdapter(getActivity(),homeCategoryList,this));
+        rvPayment = (RecyclerView)mRootView.findViewById(R.id.rvPayment);
+        rvRecharge = (RecyclerView) mRootView.findViewById(R.id.rvRecharge);
+        rvTicketBook = (RecyclerView) mRootView.findViewById(R.id.rvticketbook);
+
+//        rvPayment.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+//        rvPayment.setItemAnimator(new DefaultItemAnimator());
+//        rvPayment.setAdapter(new HomeCategoryAdapter(getActivity(),settingResponse.ge);
 
         rvRecharge.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         rvRecharge.setItemAnimator(new DefaultItemAnimator());
-        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
+        rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(),settingResponse.getResult().getRechargedetails(), this));
+        //rvRecharge.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
 
-
-//        rvHomeCategoryList.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-//        rvHomeCategoryList.setItemAnimator(new DefaultItemAnimator());
-//        rvHomeCategoryList.setAdapter(new HomeCategoryAdapter(getActivity(), homeCategoryList, this));
+        rvTicketBook.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        rvTicketBook.setItemAnimator(new DefaultItemAnimator());
+        rvTicketBook.setAdapter(new HomeCategoryAdapter(getActivity(),settingResponse.getResult().getTicketbookdetails(), this));
 
         viewPager();
     }
@@ -155,6 +150,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     private void viewPager() {
+        android.util.Log.e("slider", "slider: " +settingResponse.toString());
         mPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
         mPager.setAdapter(new SlidingImageAdapter(getActivity(),settingResponse.getResult().getSlider() ));
         CirclePageIndicator indicator = (CirclePageIndicator) mRootView.findViewById(R.id.indicator);

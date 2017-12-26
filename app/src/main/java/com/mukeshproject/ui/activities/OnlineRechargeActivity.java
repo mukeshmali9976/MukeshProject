@@ -20,13 +20,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import com.atom.mobilepaymentsdk.PayActivity;
 import com.mukeshproject.R;
 import com.mukeshproject.base.BaseAppCompatActivity;
 import com.mukeshproject.network.NetworkManager;
 import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.utils.CryptoManager;
 import com.mukeshproject.utils.Utils;
-
 
 public class OnlineRechargeActivity extends BaseAppCompatActivity implements RequestListener {
 
@@ -61,6 +61,7 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
 
     private void getIntentData() {
         llRecharge = (LinearLayout) findViewById(R.id.llRecharge);
+
         View view = null;
         if (getIntent().hasExtra(EXTRA_RECHARGE_TYPE)) {
             if (getIntent().getIntExtra(EXTRA_RECHARGE_TYPE, -1) == 0) {
@@ -71,6 +72,14 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
                 spCircle = (Spinner) view.findViewById(R.id.spCircle);
                 etAmount = (EditText) view.findViewById(R.id.etAmount);
                 imContactShow = (ImageButton) view.findViewById(R.id.imContactShow);
+                btnRechargeNow = (Button)findViewById(R.id.btnRechargeNow);
+                btnRechargeNow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(OnlineRechargeActivity.this, PayActivity.class);
+                        startActivity(intent);
+                    }
+                });
                 imContactShow.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -126,7 +135,7 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
                         if (cur.moveToNext()) {
                             String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                             String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                            Log.e("Names", name);
+                            Log.e("Name", name);
 
                             if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 
@@ -152,7 +161,6 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
         super.onStart();
         networkManager.setListener(this);
     }
-
     @Override
     public void onStop() {
         networkManager.removeListener(this);
@@ -163,7 +171,6 @@ public class OnlineRechargeActivity extends BaseAppCompatActivity implements Req
     public void onSuccess(int id, String response) {
         try {
             if (!Utils.isEmptyString(response)) {
-
 
             }
         } catch (Exception e) {

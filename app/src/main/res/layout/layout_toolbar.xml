@@ -2,6 +2,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
+    custom:titleTextColor="@color/colorWhite"
     android:background="@color/colorPrimary">
 
     <!--<ImageView-->

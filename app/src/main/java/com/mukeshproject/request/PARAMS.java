@@ -1,6 +1,5 @@
 package com.mukeshproject.request;
 
-import java.util.HashMap;
 
 public class PARAMS {
 
@@ -18,6 +17,5 @@ public class PARAMS {
     public static final String TAG_EMAIL = "email";
     public static final String TAG_PASSWORD = "password";
     public static final String TAG_DEVICE_TYPE = "devicetype";
-
 
 }

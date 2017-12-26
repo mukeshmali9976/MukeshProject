@@ -1,12 +1,15 @@
 package com.mukeshproject.ui.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import com.mukeshproject.R;
 import com.mukeshproject.ui.fragments.HomeFragment;
 import com.mukeshproject.ui.fragments.MenuFragment;
+import com.mukeshproject.ui.fragments.TwoFragment;
 import com.mukeshproject.ui.slidingmenu.SlidingActivity;
 import com.mukeshproject.ui.slidingmenu.SlidingMenu;
 import com.mukeshproject.ui.views.MyProgressDialog;
@@ -38,12 +42,21 @@ public class MainActivity extends SlidingActivity {
     private MenuItem menuItem;
     Boolean doubleBackToExitPressedOnce = false;
     private BottomNavigationView bottomNavigation;
+    private ActionBar toolbar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
         bottomNavigation = (BottomNavigationView)findViewById(R.id.bottom_navigation);
-
+        bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        // attaching bottom sheet behaviour - hide / show on scroll
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigation.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehavior());
+        
+        // load the store fragment by default
+        // ..
+        //toolbar.setTitle("Shop");
+        loadFragment(new HomeFragment());
         mActivity = this;
         prefManager = CryptoManager.getInstance(mActivity).getPrefs();
         setBehindContentView(R.layout.layout_menu_drawer_fragment_container);
@@ -74,6 +87,7 @@ public class MainActivity extends SlidingActivity {
             }
         });
     }
+
     public void restartActivity() {
         Intent intent = getIntent();
         finish();
@@ -169,6 +183,40 @@ public class MainActivity extends SlidingActivity {
         getSupportFragmentManager().popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        Fragment fragment;
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+                case R.id.navigation_shop:
+                    //toolbar.setTitle("Shop");
+                    fragment = new HomeFragment();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_gifts:
+                    //toolbar.setTitle("My Gifts");
+                    fragment = new TwoFragment();
+                    loadFragment(fragment);
+                    return true;
+                case R.id.navigation_cart:
+                    //toolbar.setTitle("Cart");
+                    return true;
+                case R.id.navigation_profile:
+                    //toolbar.setTitle("Profile");
+                    return true;
+            }
+            return false;
+        }
+    };
+    private void loadFragment(Fragment fragment) {
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainer, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
     @Override
     public void onBackPressed() {
 

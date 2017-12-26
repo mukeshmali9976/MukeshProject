@@ -8,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
 
-
 public class RequestBuilder extends PARAMS {
     private static final String TAG = RequestBuilder.class.getSimpleName();
 
@@ -23,7 +22,6 @@ public class RequestBuilder extends PARAMS {
         Log.i(TAG, jObjReq.toString());
         return parameters;
     }
-
     public static HashMap<String, String> performLogin(String email, String password, String device_token) {
         JSONObject jObjReq = new JSONObject();
         HashMap<String, String> parameters = new HashMap<>();

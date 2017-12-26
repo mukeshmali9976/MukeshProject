@@ -53,11 +53,11 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:drawablePadding="@dimen/margin_5"
                         android:id="@+id/etMobileNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_8"
+                        android:drawablePadding="@dimen/margin_5"
                         android:hint="@string/hint_mobile_number"
                         android:inputType="phone"
                         android:maxLength="13" />
@@ -115,7 +115,7 @@
                 android:layout_marginLeft="@dimen/margin_40"
                 android:layout_marginRight="@dimen/margin_40"
                 android:layout_marginTop="@dimen/margin_10"
-                android:padding="@dimen/margin_20"
+                android:padding="@dimen/margin_15"
                 android:text="@string/lbl_recharge_now"
                 android:textAllCaps="false" />
         </LinearLayout>

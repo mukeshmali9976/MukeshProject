@@ -20,16 +20,13 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-
 import com.mukeshproject.R;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 
 public class Utils {
 
@@ -69,8 +66,6 @@ public class Utils {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 mContext.getResources().getDisplayMetrics());
     }
-
-
 
     // String validation method
     public static boolean isEmptyString(String object) {
@@ -120,8 +115,6 @@ public class Utils {
             Log.e(TAG, "Sigh, cant even hide keyboard " + e.getMessage());
         }
     }
-
-
 
     /**
      * For making phone call from app

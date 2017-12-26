@@ -13,6 +13,8 @@ import com.mukeshproject.network.RequestListener;
 import com.mukeshproject.network.RequestMethod;
 import com.mukeshproject.request.RequestBuilder;
 import com.mukeshproject.utils.CryptoManager;
+import com.mukeshproject.utils.Log;
+
 import java.util.ArrayList;
 
 public class ProductItemList extends BaseAppCompatActivity implements RequestListener {
@@ -50,7 +52,7 @@ public class ProductItemList extends BaseAppCompatActivity implements RequestLis
 
         gvProductItemList = (GridView)findViewById(R.id.gvProductItemList);
         gvProductItemList.setAdapter(new ProductListAdapter(this,settingResponse.getResult().getProductlist()));
-
+        Log.e("product","pro"+settingResponse.getResult().getProductlist());
     }
 
     @Override
